@@ -57,37 +57,40 @@
 
 
 
-<meta name="description" content="Welcome to My blog
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server1$ hexo server
-More info: Server
-Generate static files1$ hexo generate
-More info: Generating
-Deplo">
+<meta name="description" content="#如何从elicpse导入
+
+启动时直接导入主工程，查看依赖关系是否正常，gradle修改对应模块。如果不正常请参考之后操作。
+
+将其余工程全部删除，修改gradle
+
+一一导入其余工程，改为libs，然后以module的形式import到主工程中
+
+修改gradle，sync">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/20/hello-world/index.html">
+<meta property="og:title" content="Yangxijun's Blog">
+<meta property="og:url" content="http://yoursite.com/2016/04/20/AndroidStudio 导入工程/index.html">
 <meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description" content="Welcome to My blog
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server1$ hexo server
-More info: Server
-Generate static files1$ hexo generate
-More info: Generating
-Deplo">
-<meta property="og:updated_time" content="2016-04-20T15:32:12.184Z">
+<meta property="og:description" content="#如何从elicpse导入
+
+启动时直接导入主工程，查看依赖关系是否正常，gradle修改对应模块。如果不正常请参考之后操作。
+
+将其余工程全部删除，修改gradle
+
+一一导入其余工程，改为libs，然后以module的形式import到主工程中
+
+修改gradle，sync">
+<meta property="og:updated_time" content="2016-04-20T15:39:30.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to My blog
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server1$ hexo server
-More info: Server
-Generate static files1$ hexo generate
-More info: Generating
-Deplo">
+<meta name="twitter:title" content="Yangxijun's Blog">
+<meta name="twitter:description" content="#如何从elicpse导入
+
+启动时直接导入主工程，查看依赖关系是否正常，gradle修改对应模块。如果不正常请参考之后操作。
+
+将其余工程全部删除，修改gradle
+
+一一导入其余工程，改为libs，然后以module的形式import到主工程中
+
+修改gradle，sync">
 
 
 
@@ -105,7 +108,7 @@ Deplo">
   };
 </script>
 
-  <title> Hello World | Yangxijun's Blog </title>
+  <title>  | Yangxijun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +228,7 @@ Deplo">
             
             
               
-                Hello World
+                
               
             
           </h1>
@@ -237,7 +240,7 @@ Deplo">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T00:52:29+08:00" content="2016-04-20">
+            <time itemprop="dateCreated" datetime="2016-04-20T23:38:46+08:00" content="2016-04-20">
               2016-04-20
             </time>
           </span>
@@ -264,15 +267,17 @@ Deplo">
       
 
       
-        <p>Welcome to My blog</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>#如何从elicpse导入</p>
+<ul>
+<li><p>启动时直接导入主工程，查看依赖关系是否正常，gradle修改对应模块。如果不正常请参考之后操作。</p>
+</li>
+<li><p>将其余工程全部删除，修改gradle</p>
+</li>
+<li><p>一一导入其余工程，改为libs，然后以module的形式import到主工程中</p>
+</li>
+<li><p>修改gradle，sync</p>
+</li>
+</ul>
 
       
     </div>
@@ -290,13 +295,13 @@ Deplo">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/20/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/20/AndroidStudio 导入工程/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -398,7 +403,7 @@ Deplo">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
