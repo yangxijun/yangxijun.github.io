@@ -14,7 +14,7 @@ LayoutInflater中的单例模式简单介绍1234567891011/*** Obtains the Layout
 <meta property="og:site_name" content="Yangxijun's Blog">
 <meta property="og:description" content="该系列第一篇文章，来自Android源码设计模式解析与实战，主要是讲源码的
 LayoutInflater中的单例模式简单介绍1234567891011/*** Obtains the LayoutInflater from the given context.*/public static LayoutInflater from(Context context) &amp;#123;   LayoutIn">
-<meta property="og:updated_time" content="2016-05-01T10:26:20.971Z">
+<meta property="og:updated_time" content="2016-05-01T15:11:55.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LayoutInflater的来龙去脉 - 读书笔记">
 <meta name="twitter:description" content="该系列第一篇文章，来自Android源码设计模式解析与实战，主要是讲源码的
@@ -98,7 +98,7 @@ LayoutInflater中的单例模式简单介绍1234567891011/*** Obtains the Layout
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/博客，学习，目标/" style="font-size: 10px;">博客，学习，目标</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a> <a href="/tags/博客，读书笔记，Android/" style="font-size: 10px;">博客，读书笔记，Android</a>
+						<a href="/tags/博客，学习，目标/" style="font-size: 10px;">博客，学习，目标</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a> <a href="/tags/博客，读书笔记，Android/" style="font-size: 20px;">博客，读书笔记，Android</a>
 					</div>
 				</section>
 				
@@ -197,7 +197,7 @@ LayoutInflater中的单例模式简单介绍1234567891011/*** Obtains the Layout
 <h3 id="在这之前，简单介绍Activity的启动过程"><a href="#在这之前，简单介绍Activity的启动过程" class="headerlink" title="在这之前，简单介绍Activity的启动过程"></a>在这之前，简单介绍Activity的启动过程</h3><p>Activity的入口是ActivityThread的main函数，在main函数中创建一个新的ActivityThread对象，并且启动消息循环Looper.prepareMainLooper()，创建新的Activity, 新的Context对象, 然后将Context传递给Activity。之后调用attach函数，其中，会通过Binder机制与ActivityManagerService通信，并且最终调用handleLaunchActivity函数。该函数会继续调用performLaunchActivity，之后会调用callActivityOnCreate方法。</p>
 <hr>
 <p>context的实现类是ContextImpl，所以要到ContextImpl中寻找getSystemService方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getSystemService</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SystemServiceRegistry.getSystemService(<span class="keyword">this</span>, name);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line">     * Gets a system service from a given context.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getSystemService</span><span class="params">(ContextImpl ctx, String name)</span> </span>&#123;</span><br><span class="line">        ServiceFetcher&lt;?&gt; fetcher = SYSTEM_SERVICE_FETCHERS.get(name);</span><br><span class="line">        <span class="keyword">return</span> fetcher != <span class="keyword">null</span> ? fetcher.getService(ctx) : <span class="keyword">null</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Object <span class="title">getSystemService</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> SystemServiceRegistry.getSystemService(<span class="keyword">this</span>, name);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line">    * Gets a system service from a given context.</span><br><span class="line">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getSystemService</span><span class="params">(ContextImpl ctx, String name)</span> </span>&#123;</span><br><span class="line">       ServiceFetcher&lt;?&gt; fetcher = SYSTEM_SERVICE_FETCHERS.get(name);</span><br><span class="line">       <span class="keyword">return</span> fetcher != <span class="keyword">null</span> ? fetcher.getService(ctx) : <span class="keyword">null</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在SystemServiceRegistry中可以找到LAYOUT_INFLATER_SERVICE的生成的地方。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">registerService(Context.LAYOUT_INFLATER_SERVICE, LayoutInflater.class,</span><br><span class="line">                <span class="keyword">new</span> CachedServiceFetcher&lt;LayoutInflater&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> LayoutInflater <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> PhoneLayoutInflater(ctx.getOuterContext());</span><br><span class="line">            &#125;&#125;);</span><br></pre></td></tr></table></figure>
 <p>所以，LayoutInflater实现类是PhoneLayoutInflater，而其中用XmlPullParser和反射对布局文件xml进行解析。</p>
@@ -209,6 +209,15 @@ LayoutInflater中的单例模式简单介绍1234567891011/*** Obtains the Layout
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/05/01/WindowManager的介绍 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          WindowManager的简单介绍 - 读书笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2016/04/25/2016年近期目标/" id="article-nav-older" class="article-nav-link-wrap">
