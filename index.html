@@ -148,6 +148,77 @@
 
       <div class="body-wrap">
   
+    <article id="post-Intent的查找与匹配 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-02T03:35:05.983Z" itemprop="datePublished">2016-05-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/02/Intent的查找与匹配 - 读书笔记/">Intent的查找与匹配 - 读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"><a href="#来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式" class="headerlink" title="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"></a>来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式</h1><hr>
+<h2 id="PackageManagerService的介绍"><a href="#PackageManagerService的介绍" class="headerlink" title="PackageManagerService的介绍"></a>PackageManagerService的介绍</h2><p>PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。</p>
+<p>在scanPackageLI中首先先构造了一个PackageParser，也就是一个apk包解析器，之后调用PackageParser的parsePackage函数进行解析，最终会调用到parseApkLite函数，该函数做的事是：</p>
+<ul>
+<li>构建AssetManager</li>
+<li>构建资源</li>
+<li>获取AndroidManifest.xml 的解析器</li>
+<li>解析获取到的AndroidManifest.xml</li>
+</ul>
+<p>继续，会对Application和use-permission解析，而Application中包含了Activity、Service、Provider、Receiver等标签，之后会把这些分别添加到对应的mActivities、mServices等列表中。到这一步，整个已安装apk的信息树就建立了，每个apk的应用名、包名、图标、Activity、Service等信息都存储在系统中。</p>
+<h2 id="启动Activity"><a href="#启动Activity" class="headerlink" title="启动Activity"></a>启动Activity</h2><p>对于启动一个Activity，最终都是调用startActivityForResult，最后是调用Instrumentation的execStartActivity函数。execStartActivity里面其实就是调用了ActivityManagerService的startActivity方法，整个方法里其实就是调用了ActivityStackSupervisor的startActivityMayWait方法，最后会调用PMS的resolveIntent方法，而其中继续调用了自身的queryIntentActivities方法。而queryIntentActivities会返回一个ActivityInfo对象列表，也就是符合Intent的Activity列表。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客，读书笔记，Android/">博客，读书笔记，Android</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-WindowManager的介绍 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
