@@ -4,24 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Intent的查找与匹配 - 读书笔记 | Yangxijun&#39;s Blog</title>
+  <title>onCreate方法的源头 - 读书笔记 | Yangxijun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intent的查找与匹配 - 读书笔记">
-<meta property="og:url" content="http://yoursite.com/2016/05/02/Intent的查找与匹配 - 读书笔记/index.html">
+<meta property="og:title" content="onCreate方法的源头 - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/onCreate方法的源头 - 读书笔记/index.html">
 <meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
-<meta property="og:updated_time" content="2016-05-11T15:54:47.837Z">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
+<meta property="og:updated_time" content="2016-05-11T16:25:04.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intent的查找与匹配 - 读书笔记">
-<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
+<meta name="twitter:title" content="onCreate方法的源头 - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
   
     <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
   
@@ -153,11 +153,11 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Intent的查找与匹配 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-02T03:35:05.983Z" itemprop="datePublished">2016-05-02</time>
+      <a href="/2016/05/11/onCreate方法的源头 - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-11T15:51:09.869Z" itemprop="datePublished">2016-05-11</time>
 </a>
     </div>
   
@@ -170,7 +170,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
         
   
     <h1 class="article-title" itemprop="name">
-      Intent的查找与匹配 - 读书笔记
+      onCreate方法的源头 - 读书笔记
     </h1>
   
 
@@ -184,7 +184,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	<a class="article-category-link" href="/categories/目标/">目标</a>
 	</div>
 
 
@@ -194,17 +194,9 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"><a href="#来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式" class="headerlink" title="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"></a>来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式</h1><hr>
-<h2 id="PackageManagerService的介绍"><a href="#PackageManagerService的介绍" class="headerlink" title="PackageManagerService的介绍"></a>PackageManagerService的介绍</h2><p>PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。</p>
-<p>在scanPackageLI中首先先构造了一个PackageParser，也就是一个apk包解析器，之后调用PackageParser的parsePackage函数进行解析，最终会调用到parseApkLite函数，该函数做的事是：</p>
-<ul>
-<li>构建AssetManager</li>
-<li>构建资源</li>
-<li>获取AndroidManifest.xml 的解析器</li>
-<li>解析获取到的AndroidManifest.xml</li>
-</ul>
-<p>继续，会对Application和use-permission解析，而Application中包含了Activity、Service、Provider、Receiver等标签，之后会把这些分别添加到对应的mActivities、mServices等列表中。到这一步，整个已安装apk的信息树就建立了，每个apk的应用名、包名、图标、Activity、Service等信息都存储在系统中。</p>
-<h2 id="启动Activity"><a href="#启动Activity" class="headerlink" title="启动Activity"></a>启动Activity</h2><p>对于启动一个Activity，最终都是调用startActivityForResult，最后是调用Instrumentation的execStartActivity函数。execStartActivity里面其实就是调用了ActivityManagerService的startActivity方法，整个方法里其实就是调用了ActivityStackSupervisor的startActivityMayWait方法，最后会调用PMS的resolveIntent方法，而其中继续调用了自身的queryIntentActivities方法。而queryIntentActivities会返回一个ActivityInfo对象列表，也就是符合Intent的Activity列表。</p>
+        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
+<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
+<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
 
       
     </div>
@@ -214,18 +206,9 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
     
 <nav id="article-nav">
   
-    <a href="/2016/05/11/onCreate方法的源头 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          onCreate方法的源头 - 读书笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/01/WindowManager的介绍 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">WindowManager的简单介绍 - 读书笔记</div>
+    <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Intent的查找与匹配 - 读书笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -260,7 +243,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Intent的查找与匹配 - 读书笔记" data-title="Intent的查找与匹配 - 读书笔记" data-url="http://yoursite.com/2016/05/02/Intent的查找与匹配 - 读书笔记/"></div>
+	<div class="ds-thread" data-thread-key="onCreate方法的源头 - 读书笔记" data-title="onCreate方法的源头 - 读书笔记" data-url="http://yoursite.com/2016/05/11/onCreate方法的源头 - 读书笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
