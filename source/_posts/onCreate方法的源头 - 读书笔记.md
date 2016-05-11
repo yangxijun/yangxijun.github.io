@@ -1,5 +1,5 @@
 ---
-title: onCreate方法的来源 - 读书笔记
+title: onCreate方法的源头 - 读书笔记
 date: 2016年5月11日23:52:11
 categories: 目标
 tags: [Android源码设计模式解析与实战，读书笔记，Android]
@@ -9,7 +9,7 @@ tags: [Android源码设计模式解析与实战，读书笔记，Android]
 
 ---
 
-## 关于onCreate方法
+## onCreate方法的源头
 
  该系列的[第一篇文章](http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)提到过，一个应用的真在入口是在ActivityThread类中的main方法。
 
