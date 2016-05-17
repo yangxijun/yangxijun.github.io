@@ -148,10 +148,73 @@
 
       <div class="body-wrap">
   
-    <article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-onCreate方法的源头 - 读书笔记 - 副本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/11/onCreate方法的源头 - 读书笔记/" class="article-date">
+      <a href="/2016/05/17/onCreate方法的源头 - 读书笔记 - 副本/" class="article-date">
+  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/17/onCreate方法的源头 - 读书笔记 - 副本/">onCreate方法的源头 - 读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
+<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
+<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/目标/">目标</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MediaPlayerFactory - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" class="article-date">
   	<time datetime="2016-05-11T15:51:09.869Z" itemprop="datePublished">2016-05-11</time>
 </a>
     </div>
@@ -165,7 +228,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/onCreate方法的源头 - 读书笔记/">onCreate方法的源头 - 读书笔记</a>
+      <a class="article-title" href="/2016/05/11/MediaPlayerFactory - 读书笔记/">MediaPlayerFactory - 读书笔记</a>
     </h1>
   
 
@@ -174,9 +237,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
-<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
-<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
+        <h1 id="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"><a href="#来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现" class="headerlink" title="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"></a>来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现</h1><hr>
+<h2 id="MediaPlayerFactory是典型的抽象工厂方法"><a href="#MediaPlayerFactory是典型的抽象工厂方法" class="headerlink" title="MediaPlayerFactory是典型的抽象工厂方法"></a>MediaPlayerFactory是典型的抽象工厂方法</h2><p>MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。</p>
+<ul>
+<li>StagefrightPlayerFactory创建StagefrightPlayer</li>
+<li>NuPlayerFactory创建NuPlayerDriver</li>
+<li>SonivoxPlayerFactory创建MidiFile</li>
+<li>TestPlayerFactory创建TestPlayerStub</li>
+</ul>
 
       
     </div>

@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Intent的查找与匹配 - 读书笔记 | Yangxijun&#39;s Blog</title>
+  <title>MediaPlayerFactory - 读书笔记 | Yangxijun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现
+MediaPlayerFactory是典型的抽象工厂方法MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。
+
+StagefrightPlayerFactory创建Stag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intent的查找与匹配 - 读书笔记">
-<meta property="og:url" content="http://yoursite.com/2016/05/02/Intent的查找与匹配 - 读书笔记/index.html">
+<meta property="og:title" content="MediaPlayerFactory - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/11/MediaPlayerFactory - 读书笔记/index.html">
 <meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
-<meta property="og:updated_time" content="2016-05-11T15:54:47.837Z">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现
+MediaPlayerFactory是典型的抽象工厂方法MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。
+
+StagefrightPlayerFactory创建Stag">
+<meta property="og:updated_time" content="2016-05-17T13:36:17.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Intent的查找与匹配 - 读书笔记">
-<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式
-PackageManagerService的介绍PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。
-在scanPackageLI中首先先构造了一个PackageParse">
+<meta name="twitter:title" content="MediaPlayerFactory - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现
+MediaPlayerFactory是典型的抽象工厂方法MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。
+
+StagefrightPlayerFactory创建Stag">
   
     <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
   
@@ -153,11 +156,11 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Intent的查找与匹配 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-MediaPlayerFactory - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-02T03:35:05.983Z" itemprop="datePublished">2016-05-02</time>
+      <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-11T15:51:09.869Z" itemprop="datePublished">2016-05-11</time>
 </a>
     </div>
   
@@ -170,7 +173,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
         
   
     <h1 class="article-title" itemprop="name">
-      Intent的查找与匹配 - 读书笔记
+      MediaPlayerFactory - 读书笔记
     </h1>
   
 
@@ -184,7 +187,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	<a class="article-category-link" href="/categories/目标/">目标</a>
 	</div>
 
 
@@ -194,17 +197,14 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"><a href="#来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式" class="headerlink" title="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"></a>来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式</h1><hr>
-<h2 id="PackageManagerService的介绍"><a href="#PackageManagerService的介绍" class="headerlink" title="PackageManagerService的介绍"></a>PackageManagerService的介绍</h2><p>PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。</p>
-<p>在scanPackageLI中首先先构造了一个PackageParser，也就是一个apk包解析器，之后调用PackageParser的parsePackage函数进行解析，最终会调用到parseApkLite函数，该函数做的事是：</p>
+        <h1 id="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"><a href="#来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现" class="headerlink" title="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"></a>来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现</h1><hr>
+<h2 id="MediaPlayerFactory是典型的抽象工厂方法"><a href="#MediaPlayerFactory是典型的抽象工厂方法" class="headerlink" title="MediaPlayerFactory是典型的抽象工厂方法"></a>MediaPlayerFactory是典型的抽象工厂方法</h2><p>MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。</p>
 <ul>
-<li>构建AssetManager</li>
-<li>构建资源</li>
-<li>获取AndroidManifest.xml 的解析器</li>
-<li>解析获取到的AndroidManifest.xml</li>
+<li>StagefrightPlayerFactory创建StagefrightPlayer</li>
+<li>NuPlayerFactory创建NuPlayerDriver</li>
+<li>SonivoxPlayerFactory创建MidiFile</li>
+<li>TestPlayerFactory创建TestPlayerStub</li>
 </ul>
-<p>继续，会对Application和use-permission解析，而Application中包含了Activity、Service、Provider、Receiver等标签，之后会把这些分别添加到对应的mActivities、mServices等列表中。到这一步，整个已安装apk的信息树就建立了，每个apk的应用名、包名、图标、Activity、Service等信息都存储在系统中。</p>
-<h2 id="启动Activity"><a href="#启动Activity" class="headerlink" title="启动Activity"></a>启动Activity</h2><p>对于启动一个Activity，最终都是调用startActivityForResult，最后是调用Instrumentation的execStartActivity函数。execStartActivity里面其实就是调用了ActivityManagerService的startActivity方法，整个方法里其实就是调用了ActivityStackSupervisor的startActivityMayWait方法，最后会调用PMS的resolveIntent方法，而其中继续调用了自身的queryIntentActivities方法。而queryIntentActivities会返回一个ActivityInfo对象列表，也就是符合Intent的Activity列表。</p>
 
       
     </div>
@@ -214,18 +214,18 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
     
 <nav id="article-nav">
   
-    <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/17/onCreate方法的源头 - 读书笔记 - 副本/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          MediaPlayerFactory - 读书笔记
+          onCreate方法的源头 - 读书笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/05/01/WindowManager的介绍 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">WindowManager的简单介绍 - 读书笔记</div>
+    <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Intent的查找与匹配 - 读书笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -260,7 +260,7 @@ PackageManagerService的介绍PMS加载Framework资源与核心库，之后才�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Intent的查找与匹配 - 读书笔记" data-title="Intent的查找与匹配 - 读书笔记" data-url="http://yoursite.com/2016/05/02/Intent的查找与匹配 - 读书笔记/"></div>
+	<div class="ds-thread" data-thread-key="MediaPlayerFactory - 读书笔记" data-title="MediaPlayerFactory - 读书笔记" data-url="http://yoursite.com/2016/05/11/MediaPlayerFactory - 读书笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
