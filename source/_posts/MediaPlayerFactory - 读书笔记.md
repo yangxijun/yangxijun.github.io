@@ -1,7 +1,7 @@
 ---
 title: MediaPlayerFactory - 读书笔记
 date: 2016年5月17日00:04:02
-categories: 目标
+categories: 读书笔记
 tags: [Android源码设计模式解析与实战，读书笔记，Android]
 ---
 
