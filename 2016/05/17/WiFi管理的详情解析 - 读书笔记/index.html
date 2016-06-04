@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>WiFi管理的详情解析 - 读书笔记 | Yangxijun&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
+WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WiFi管理的详情解析 - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/17/WiFi管理的详情解析 - 读书笔记/index.html">
+<meta property="og:site_name" content="Yangxijun's Blog">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
+WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
+<meta property="og:updated_time" content="2016-06-04T16:11:36.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WiFi管理的详情解析 - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
+WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
+  
+    <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Yangxijun</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android源码设计模式解析与实战，读书笔记，Android/" style="font-size: 20px;">Android源码设计模式解析与实战，读书笔记，Android</a> <a href="/tags/博客，学习，目标/" style="font-size: 10px;">博客，学习，目标</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Yangxijun</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Yangxijun</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-WiFi管理的详情解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WiFi管理的详情解析 - 读书笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"><a href="#来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式" class="headerlink" title="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"></a>来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式</h1><hr>
+<h2 id="WiFi状态的入口"><a href="#WiFi状态的入口" class="headerlink" title="WiFi状态的入口"></a>WiFi状态的入口</h2><p>类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">registerService(Context.WIFI_SERVICE, WifiManager.class,</span><br><span class="line">                <span class="keyword">new</span> CachedServiceFetcher&lt;WifiManager&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WifiManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            IBinder b = ServiceManager.getService(Context.WIFI_SERVICE);</span><br><span class="line">            IWifiManager service = IWifiManager.Stub.asInterface(b);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiManager(ctx.getOuterContext(), service);</span><br><span class="line">	&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样我们可以看到WiFi的具体控制是在WifiManager之中，我们可以找到改变wifi状态的方法setWifiEnable</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mService.setWifiEnabled(enabled);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>其中mService是IWifiManager，一个AIDL的方法，通过查看源码很容易发现其具体实现是在WifiServiceImpl中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enable)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    mWifiController.sendMessage(CMD_WIFI_TOGGLED);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这还不是真正实现功能的地方！实际上是通过mWifiController发送了一个CMD_WIFI_TOGGLED消息，其中mWifiController的类型为WifiController，sendMessage这个方法在WifiController的父类StateMachine中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">int</span> what)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// mSmHandler can be null if the state machine has quit.</span></span><br><span class="line">        SmHandler smh = mSmHandler;</span><br><span class="line">        <span class="keyword">if</span> (smh == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        smh.sendMessage(obtainMessage(what));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>那么我们继续查看SmHandler源码中的handleMessage方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!mHasQuit) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mDbg) mSm.log(<span class="string">"handleMessage: E msg.what="</span> + msg.what);</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** Save the current message */</span></span><br><span class="line">                mMsg = msg;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** State that processed the message */</span></span><br><span class="line">                State msgProcessedState = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (mIsConstructionCompleted) &#123;</span><br><span class="line">                    <span class="comment">/** Normal path */</span></span><br><span class="line">                    msgProcessedState = processMsg(msg);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mIsConstructionCompleted &amp;&amp; (mMsg.what == SM_INIT_CMD)</span><br><span class="line">                        &amp;&amp; (mMsg.obj == mSmHandlerObj)) &#123;</span><br><span class="line">                    <span class="comment">/** Initial one time path. */</span></span><br><span class="line">                    mIsConstructionCompleted = <span class="keyword">true</span>;</span><br><span class="line">                    invokeEnterMethods(<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"StateMachine.handleMessage: "</span></span><br><span class="line">                            + <span class="string">"The start method not called, received msg: "</span> + msg);</span><br><span class="line">                &#125;</span><br><span class="line">                performTransitions(msgProcessedState, msg);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// We need to check if mSm == null here as we could be quitting.</span></span><br><span class="line">                <span class="keyword">if</span> (mDbg &amp;&amp; mSm != <span class="keyword">null</span>) mSm.log(<span class="string">"handleMessage: X"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>处理消息的方法就是processMsg，处理完成之后会调用performTransitions</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performTransitions</span><span class="params">(State msgProcessedState, Message msg)</span> </span>&#123;</span><br><span class="line">           State orgState = mStateStack[mStateStackTopIndex].state;</span><br><span class="line">           <span class="keyword">boolean</span> recordLogMsg = mSm.recordLogRec(mMsg) &amp;&amp; (msg.obj != mSmHandlerObj)</span><br><span class="line"></span><br><span class="line">           State destState = mDestState;</span><br><span class="line">           <span class="keyword">if</span> (destState != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="comment">/**</span><br><span class="line">                * Process the transitions including transitions in the enter/exit methods</span><br><span class="line">                */</span></span><br><span class="line">               <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                   StateInfo commonStateInfo = setupTempStateStackWithStatesToEnter(destState);</span><br><span class="line">                   invokeEnterMethods(commonStateInfo);</span><br><span class="line">                   <span class="keyword">int</span> stateStackEnteringIndex = moveTempStateStackToStateStack();</span><br><span class="line">                   invokeEnterMethods(stateStackEnteringIndex);</span><br><span class="line"></span><br><span class="line">                   moveDeferredMessageAtFrontOfQueue();</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (destState != mDestState) &#123;</span><br><span class="line">                       <span class="comment">// A new mDestState so continue looping</span></span><br><span class="line">                       destState = mDestState;</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       <span class="comment">// No change in mDestState so we're done</span></span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">               mDestState = <span class="keyword">null</span>;</span><br><span class="line">           &#125;</span><br><span class="line">		....</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>这其中的invokeEnterMethods和invokeEnterMethods可以发现运用了状态模式，其接口是IState</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IState</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">enter</span><span class="params">()</span></span>;</span><br><span class="line">  	</span><br><span class="line">  	<span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span></span>;</span><br><span class="line">  </span><br><span class="line">  	<span class="function"><span class="keyword">boolean</span> <span class="title">processMessage</span><span class="params">(Message msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>状态之间是不可以随意切换的，它们有一种层级关系，这些关系在StateMachine中被定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">addState(mDefaultState);</span><br><span class="line">addState(mInitialState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartingState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartedState, mDefaultState);</span><br><span class="line">addState(mDriverStartingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStartedState, mSupplicantStartedState);</span><br><span class="line">addState(mScanModeState, mDriverStartedState);</span><br><span class="line">addState(mConnectModeState, mDriverStartedState);</span><br><span class="line">addState(mL2ConnectedState, mConnectModeState);</span><br><span class="line">addState(mObtainingIpState, mL2ConnectedState);</span><br><span class="line">addState(mVerifyingLinkState, mL2ConnectedState);</span><br><span class="line">addState(mConnectedState, mL2ConnectedState);</span><br><span class="line">addState(mRoamingState, mL2ConnectedState);</span><br><span class="line">addState(mDisconnectingState, mConnectModeState);</span><br><span class="line">addState(mDisconnectedState, mConnectModeState);</span><br><span class="line">addState(mWpsRunningState, mConnectModeState);</span><br><span class="line">addState(mWaitForP2pDisableState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppedState, mSupplicantStartedState);</span><br><span class="line">addState(mSupplicantStoppingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartedState, mDefaultState);</span><br><span class="line">addState(mTetheringState, mSoftApStartedState);</span><br><span class="line">addState(mTetheredState, mSoftApStartedState);</span><br><span class="line">addState(mUntetheringState, mSoftApStartedState);</span><br><span class="line"></span><br><span class="line">setInitialState(mInitialState);</span><br></pre></td></tr></table></figure>
+<p>其中addState最终都会调用SmHandler中的addState方法，从而绑定关系</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/22/属性动画详解 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          属性动画详解 - 读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">onCreate方法的源头 - 读书笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="WiFi管理的详情解析 - 读书笔记" data-title="WiFi管理的详情解析 - 读书笔记" data-url="http://yoursite.com/2016/05/17/WiFi管理的详情解析 - 读书笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Yangxijun
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

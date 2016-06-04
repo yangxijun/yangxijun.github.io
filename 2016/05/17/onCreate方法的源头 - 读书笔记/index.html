@@ -4,45 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>2016年近期目标 | Yangxijun&#39;s Blog</title>
+  <title>onCreate方法的源头 - 读书笔记 | Yangxijun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="近期目标，按照时间顺序
-了解Volley源码
-
-了解OkHttp源码
-
-了解RecyclerView
-
-阅读Android设计模式源码分析并开始写blog
-
-写blog，至少一周一篇">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2016年近期目标">
-<meta property="og:url" content="http://yoursite.com/2016/04/25/2016年近期目标/index.html">
+<meta property="og:title" content="onCreate方法的源头 - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/17/onCreate方法的源头 - 读书笔记/index.html">
 <meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description" content="近期目标，按照时间顺序
-了解Volley源码
-
-了解OkHttp源码
-
-了解RecyclerView
-
-阅读Android设计模式源码分析并开始写blog
-
-写blog，至少一周一篇">
-<meta property="og:updated_time" content="2016-06-02T15:47:55.434Z">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
+<meta property="og:updated_time" content="2016-05-22T15:06:41.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2016年近期目标">
-<meta name="twitter:description" content="近期目标，按照时间顺序
-了解Volley源码
-
-了解OkHttp源码
-
-了解RecyclerView
-
-阅读Android设计模式源码分析并开始写blog
-
-写blog，至少一周一篇">
+<meta name="twitter:title" content="onCreate方法的源头 - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式
+onCreate方法的源头 该系列的第一篇文章提到过，一个应用的真在入口是在ActivityThread类中的main方法。
+关于ActivityThreadActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行Activit">
   
     <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
   
@@ -174,11 +153,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-2016年近期目标" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/25/2016年近期目标/" class="article-date">
-  	<time datetime="2016-04-25T15:59:22.469Z" itemprop="datePublished">2016-04-25</time>
+      <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
 </a>
     </div>
   
@@ -191,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2016年近期目标
+      onCreate方法的源头 - 读书笔记
     </h1>
   
 
@@ -200,12 +179,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客，学习，目标/">博客，学习，目标</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/目标/">目标</a>
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
 	</div>
 
 
@@ -215,18 +194,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="近期目标，按照时间顺序"><a href="#近期目标，按照时间顺序" class="headerlink" title="近期目标，按照时间顺序"></a>近期目标，按照时间顺序</h2><ul>
-<li><p>了解Volley源码</p>
-</li>
-<li><p>了解OkHttp源码</p>
-</li>
-<li><p>了解RecyclerView</p>
-</li>
-<li><p>阅读Android设计模式源码分析并开始写blog</p>
-</li>
-<li><p>写blog，至少一周一篇</p>
-</li>
-</ul>
+        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
+<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
+<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
 
       
     </div>
@@ -236,18 +206,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/30/LayoutInflater的来龙去脉 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          LayoutInflater的来龙去脉 - 读书笔记
+          WiFi管理的详情解析 - 读书笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/04/20/AndroidStudio 导入工程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AS导入</div>
+    <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MediaPlayerFactory - 读书笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -282,7 +252,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016年近期目标" data-title="2016年近期目标" data-url="http://yoursite.com/2016/04/25/2016年近期目标/"></div>
+	<div class="ds-thread" data-thread-key="onCreate方法的源头 - 读书笔记" data-title="onCreate方法的源头 - 读书笔记" data-url="http://yoursite.com/2016/05/17/onCreate方法的源头 - 读书笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
