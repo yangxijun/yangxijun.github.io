@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>WiFi管理的详情解析 - 读书笔记 | Yangxijun&#39;s Blog</title>
+  <title>PackageParser和PMS - 读书笔记 | Yangxijun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
-WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
-12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式
+PackageParser该类用于对AndroidManifest.xml中每一个组件标签创建了相应的类用以存储相应的信息
+类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Contex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WiFi管理的详情解析 - 读书笔记">
-<meta property="og:url" content="http://yoursite.com/2016/05/17/WiFi管理的详情解析 - 读书笔记/index.html">
+<meta property="og:title" content="PackageParser和PMS - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/06/05/PackageParser和PMS - 读书笔记/index.html">
 <meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
-WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
-12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
-<meta property="og:updated_time" content="2016-06-04T16:28:32.353Z">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式
+PackageParser该类用于对AndroidManifest.xml中每一个组件标签创建了相应的类用以存储相应的信息
+类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Contex">
+<meta property="og:updated_time" content="2016-06-05T04:03:44.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WiFi管理的详情解析 - 读书笔记">
-<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式
-WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
-12345678registerService(Context.WIFI_SERVICE, WifiManager.class,                new Cach">
+<meta name="twitter:title" content="PackageParser和PMS - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式
+PackageParser该类用于对AndroidManifest.xml中每一个组件标签创建了相应的类用以存储相应的信息
+类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法
+12345678registerService(Contex">
   
     <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
   
@@ -153,11 +156,11 @@ WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry�
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-WiFi管理的详情解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-PackageParser和PMS - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
+      <a href="/2016/06/05/PackageParser和PMS - 读书笔记/" class="article-date">
+  	<time datetime="2016-06-05T04:01:45.000Z" itemprop="datePublished">2016-06-05</time>
 </a>
     </div>
   
@@ -170,7 +173,7 @@ WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry�
         
   
     <h1 class="article-title" itemprop="name">
-      WiFi管理的详情解析 - 读书笔记
+      PackageParser和PMS - 读书笔记
     </h1>
   
 
@@ -194,8 +197,9 @@ WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"><a href="#来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式" class="headerlink" title="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"></a>来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式</h1><hr>
-<h2 id="WiFi状态的入口"><a href="#WiFi状态的入口" class="headerlink" title="WiFi状态的入口"></a>WiFi状态的入口</h2><p>类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法</p>
+        <h1 id="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式"><a href="#来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式"></a>来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式</h1><hr>
+<h2 id="PackageParser"><a href="#PackageParser" class="headerlink" title="PackageParser"></a>PackageParser</h2><p>该类用于对AndroidManifest.xml中每一个组件标签创建了相应的类用以存储相应的信息</p>
+<p>类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">registerService(Context.WIFI_SERVICE, WifiManager.class,</span><br><span class="line">                <span class="keyword">new</span> CachedServiceFetcher&lt;WifiManager&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WifiManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            IBinder b = ServiceManager.getService(Context.WIFI_SERVICE);</span><br><span class="line">            IWifiManager service = IWifiManager.Stub.asInterface(b);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiManager(ctx.getOuterContext(), service);</span><br><span class="line">	&#125;&#125;);</span><br></pre></td></tr></table></figure>
 <p>这样我们可以看到WiFi的具体控制是在WifiManager之中，我们可以找到改变wifi状态的方法setWifiEnable</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mService.setWifiEnabled(enabled);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -221,18 +225,18 @@ WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry�
     
 <nav id="article-nav">
   
-    <a href="/2016/05/22/属性动画详解 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          属性动画详解 - 读书笔记
+          Android源码中的观察者模式 - 读书笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">onCreate方法的源头 - 读书笔记</div>
+    <a href="/2016/05/22/属性动画详解 - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">属性动画详解 - 读书笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -267,7 +271,7 @@ WiFi状态的入口类似之前的方法，我们可以从SystemServiceRegistry�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="WiFi管理的详情解析 - 读书笔记" data-title="WiFi管理的详情解析 - 读书笔记" data-url="http://yoursite.com/2016/05/17/WiFi管理的详情解析 - 读书笔记/"></div>
+	<div class="ds-thread" data-thread-key="PackageParser和PMS - 读书笔记" data-title="PackageParser和PMS - 读书笔记" data-url="http://yoursite.com/2016/06/05/PackageParser和PMS - 读书笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

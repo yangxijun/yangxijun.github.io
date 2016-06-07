@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android源码中的观察者模式 - 读书笔记 | Yangxijun&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式
+1. ListView中的观察者模式通常我们往ListView添加数据后，都会调用Adapter的notifyDataSetChanged方法，这就是一个观察者模式。
+1234567891011public void notifyDataSetChanged() &amp;#123;        mDataSetObse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android源码中的观察者模式 - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/06/07/Android源码中的观察者模式 - 读书笔记/index.html">
+<meta property="og:site_name" content="Yangxijun's Blog">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式
+1. ListView中的观察者模式通常我们往ListView添加数据后，都会调用Adapter的notifyDataSetChanged方法，这就是一个观察者模式。
+1234567891011public void notifyDataSetChanged() &amp;#123;        mDataSetObse">
+<meta property="og:updated_time" content="2016-06-07T16:44:13.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android源码中的观察者模式 - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式
+1. ListView中的观察者模式通常我们往ListView添加数据后，都会调用Adapter的notifyDataSetChanged方法，这就是一个观察者模式。
+1234567891011public void notifyDataSetChanged() &amp;#123;        mDataSetObse">
+  
+    <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Yangxijun</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android源码设计模式解析与实战，读书笔记，Android/" style="font-size: 20px;">Android源码设计模式解析与实战，读书笔记，Android</a> <a href="/tags/博客，学习，目标/" style="font-size: 10px;">博客，学习，目标</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Yangxijun</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Yangxijun</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Android源码中的观察者模式 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/" class="article-date">
+  	<time datetime="2016-06-07T15:11:12.329Z" itemprop="datePublished">2016-06-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android源码中的观察者模式 - 读书笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式"><a href="#来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式"></a>来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式</h1><hr>
+<h2 id="1-ListView中的观察者模式"><a href="#1-ListView中的观察者模式" class="headerlink" title="1. ListView中的观察者模式"></a>1. ListView中的观察者模式</h2><p>通常我们往ListView添加数据后，都会调用Adapter的notifyDataSetChanged方法，这就是一个观察者模式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyDataSetChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mDataSetObservable.notifyChanged();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(mObservers) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = mObservers.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                mObservers.get(i).onChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这个就是观察者模式主要特征，遍历所有项目一一通知。那么观察者从哪里来？其实是通过ListView的setAdapter方法产生的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAdapter</span><span class="params">(ListAdapter adapter)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mDataSetObserver != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mAdapter.unregisterDataSetObserver(mDataSetObserver);</span><br><span class="line">        &#125;</span><br><span class="line">     	...</span><br><span class="line">        <span class="comment">// AbsListView#setAdapter will update choice mode states.</span></span><br><span class="line">        <span class="keyword">super</span>.setAdapter(adapter);</span><br><span class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ...</span><br><span class="line">            mDataSetObserver = <span class="keyword">new</span> AdapterDataSetObserver();</span><br><span class="line">            mAdapter.registerDataSetObserver(mDataSetObserver);</span><br><span class="line">        &#125;</span><br><span class="line">      	...</span><br><span class="line">        requestLayout();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>在设置Adapter时会创建一个AdapterDataSetObserver，之后会注册到Adapter中。继续深入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdapterDataSetObserver</span> <span class="keyword">extends</span> <span class="title">AdapterView</span>&lt;<span class="title">ListAdapter</span>&gt;.<span class="title">AdapterDataSetObserver</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onChanged();</span><br><span class="line">            <span class="keyword">if</span> (mFastScroll != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mFastScroll.onSectionsChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInvalidated</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onInvalidated();</span><br><span class="line">            <span class="keyword">if</span> (mFastScroll != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mFastScroll.onSectionsChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mDataChanged = <span class="keyword">true</span>;</span><br><span class="line">            mOldItemCount = mItemCount;</span><br><span class="line">            mItemCount = getAdapter().getCount();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Detect the case where a cursor that was previously invalidated has</span></span><br><span class="line">            <span class="comment">// been repopulated with new data.</span></span><br><span class="line">            <span class="keyword">if</span> (AdapterView.<span class="keyword">this</span>.getAdapter().hasStableIds() &amp;&amp; mInstanceState != <span class="keyword">null</span></span><br><span class="line">                    &amp;&amp; mOldItemCount == <span class="number">0</span> &amp;&amp; mItemCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                AdapterView.<span class="keyword">this</span>.onRestoreInstanceState(mInstanceState);</span><br><span class="line">                mInstanceState = <span class="keyword">null</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rememberSyncState();</span><br><span class="line">            &#125;</span><br><span class="line">            checkFocus();</span><br><span class="line">            requestLayout();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>这里就知道了，在数据发送变化后，会调用notifyDataSetChanged函数，然后会调用其观察对象的onChanged方法，最后通知ListView重新布局，也就是这里的requestLayout。</p>
+<h2 id="2-BroadcastReceiver中的观察者模式"><a href="#2-BroadcastReceiver中的观察者模式" class="headerlink" title="2. BroadcastReceiver中的观察者模式"></a>2. BroadcastReceiver中的观察者模式</h2><h3 id="2-1-广播的注册"><a href="#2-1-广播的注册" class="headerlink" title="2.1  广播的注册"></a>2.1  广播的注册</h3><p>直接去ContextImpl中查找registerReceiver，其最后调用registerReceiverInternal</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Intent <span class="title">registerReceiverInternal</span><span class="params">(BroadcastReceiver receiver, <span class="keyword">int</span> userId,</span><br><span class="line">            IntentFilter filter, String broadcastPermission,</span><br><span class="line">            Handler scheduler, Context context)</span> </span>&#123;</span><br><span class="line">        IIntentReceiver rd = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (receiver != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mPackageInfo != <span class="keyword">null</span> &amp;&amp; context != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (scheduler == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    scheduler = mMainThread.getHandler();</span><br><span class="line">                &#125;</span><br><span class="line">                rd = mPackageInfo.getReceiverDispatcher(</span><br><span class="line">                    receiver, context, scheduler,</span><br><span class="line">                    mMainThread.getInstrumentation(), <span class="keyword">true</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (scheduler == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    scheduler = mMainThread.getHandler();</span><br><span class="line">                &#125;</span><br><span class="line">                rd = <span class="keyword">new</span> LoadedApk.ReceiverDispatcher(</span><br><span class="line">                        receiver, context, scheduler, <span class="keyword">null</span>, <span class="keyword">true</span>).getIIntentReceiver();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ActivityManagerNative.getDefault().registerReceiver(</span><br><span class="line">                    mMainThread.getApplicationThread(), mBasePackageName,</span><br><span class="line">                    rd, filter, broadcastPermission, userId);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里看到，当外部传入的context不为空时，会调用getReceiverDispatcher方法，跟进去发现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IIntentReceiver <span class="title">getReceiverDispatcher</span><span class="params">(BroadcastReceiver r,</span><br><span class="line">            Context context, Handler handler,</span><br><span class="line">            Instrumentation instrumentation, <span class="keyword">boolean</span> registered)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mReceivers) &#123;</span><br><span class="line">            LoadedApk.ReceiverDispatcher rd = <span class="keyword">null</span>;</span><br><span class="line">            ArrayMap&lt;BroadcastReceiver, LoadedApk.ReceiverDispatcher&gt; map = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (registered) &#123;</span><br><span class="line">                map = mReceivers.get(context);</span><br><span class="line">                <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rd = map.get(r);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (rd == <span class="keyword">null</span>) &#123;</span><br><span class="line">                rd = <span class="keyword">new</span> ReceiverDispatcher(r, context, handler,</span><br><span class="line">                        instrumentation, registered);</span><br><span class="line">                <span class="keyword">if</span> (registered) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        map = <span class="keyword">new</span> ArrayMap&lt;BroadcastReceiver, LoadedApk.ReceiverDispatcher&gt;();</span><br><span class="line">                        mReceivers.put(context, map);</span><br><span class="line">                    &#125;</span><br><span class="line">                    map.put(r, rd);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rd.validate(context, handler);</span><br><span class="line">            &#125;</span><br><span class="line">            rd.mForgotten = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">return</span> rd.getIIntentReceiver();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如果receiver在map中，直接取出，否则new一个ReceiverDispatcher，添加到map中，完成IIntentReceiver的获取。</p>
+<p>回到最早的registerReceiverInternal中，最后一步是将其注册到ActivityManagerService中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Intent <span class="title">registerReceiver</span><span class="params">(IApplicationThread caller, String callerPackage,</span><br><span class="line">            IIntentReceiver receiver, IntentFilter filter, String permission, <span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        ArrayList&lt;Intent&gt; allSticky = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (stickyIntents != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">final</span> ContentResolver resolver = mContext.getContentResolver();</span><br><span class="line">            <span class="comment">// Look for any matching sticky broadcasts...</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, N = stickyIntents.size(); i &lt; N; i++) &#123;</span><br><span class="line">                Intent intent = stickyIntents.get(i);</span><br><span class="line">                <span class="keyword">if</span> (filter.match(resolver, intent, <span class="keyword">true</span>, TAG) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (allSticky == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        allSticky = <span class="keyword">new</span> ArrayList&lt;Intent&gt;();</span><br><span class="line">                    &#125;</span><br><span class="line">                    allSticky.add(intent);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// The first sticky in the list is returned directly back to the client.</span></span><br><span class="line">        Intent sticky = allSticky != <span class="keyword">null</span> ? allSticky.get(<span class="number">0</span>) : <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (receiver == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> sticky;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (callerApp != <span class="keyword">null</span> &amp;&amp; (callerApp.thread == <span class="keyword">null</span></span><br><span class="line">                    || callerApp.thread.asBinder() != caller.asBinder())) &#123;</span><br><span class="line">                <span class="comment">// Original caller already died</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ReceiverList rl = mRegisteredReceivers.get(receiver.asBinder());</span><br><span class="line">            <span class="keyword">if</span> (rl == <span class="keyword">null</span>) &#123;</span><br><span class="line">                rl = <span class="keyword">new</span> ReceiverList(<span class="keyword">this</span>, callerApp, callingPid, callingUid,</span><br><span class="line">                        userId, receiver);</span><br><span class="line">                <span class="keyword">if</span> (rl.app != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rl.app.receivers.add(rl);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        receiver.asBinder().linkToDeath(rl, <span class="number">0</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                        <span class="keyword">return</span> sticky;</span><br><span class="line">                    &#125;</span><br><span class="line">                    rl.linkedToDeath = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                mRegisteredReceivers.put(receiver.asBinder(), rl);</span><br><span class="line">            &#125; </span><br><span class="line">          	...</span><br><span class="line">            BroadcastFilter bf = <span class="keyword">new</span> BroadcastFilter(filter, rl, callerPackage,</span><br><span class="line">                    permission, callingUid, userId);</span><br><span class="line">            rl.add(bf);</span><br><span class="line">            mReceiverResolver.addFilter(bf);</span><br><span class="line">			...</span><br><span class="line">            <span class="keyword">return</span> sticky;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里主要做了几件事</p>
+<ul>
+<li>根据Action查找匹配的sticky接收器，也就是sendStickyBroadcast发送的广播类型</li>
+<li>获取对应的ReceiverList</li>
+<li>创建BroadcastFilter对象，并且添加到ReceiverList中</li>
+</ul>
+<p>完成了注册。</p>
+<h3 id="2-2-分发"><a href="#2-2-分发" class="headerlink" title="2.2 分发"></a>2.2 分发</h3><p>ActivityManagerService在消息循环中处理这个广播，并通过Binder机制把这个广播分发给ReceiverDispatcher中，完成异步分发。</p>
+<h3 id="2-3-处理"><a href="#2-3-处理" class="headerlink" title="2.3 处理"></a>2.3 处理</h3><p>ReceiverDispatcher内部类Args在MainActivity所在的消息循环中处理这个广播，最终是将这个广播发给注册的BroadcastReceiver实例的onReceiver函数进行处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">final</span> BroadcastReceiver receiver = mReceiver;</span><br><span class="line">             <span class="keyword">final</span> <span class="keyword">boolean</span> ordered = mOrdered;</span><br><span class="line">             </span><br><span class="line">             <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</span><br><span class="line">             <span class="keyword">final</span> Intent intent = mCurIntent;</span><br><span class="line">             mCurIntent = <span class="keyword">null</span>;</span><br><span class="line">	...</span><br><span class="line">             <span class="keyword">try</span> &#123;</span><br><span class="line">                 ClassLoader cl =  mReceiver.getClass().getClassLoader();</span><br><span class="line">                 intent.setExtrasClassLoader(cl);</span><br><span class="line">                 setExtrasClassLoader(cl);</span><br><span class="line">                 receiver.setPendingResult(<span class="keyword">this</span>);</span><br><span class="line">                 receiver.onReceive(mContext, intent);</span><br><span class="line">             &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-总结"><a href="#2-4-总结" class="headerlink" title="2.4 总结"></a>2.4 总结</h3><p>广播，通过一些map存储BroadcastReceiver，key就是封装了这些广播信息。当发布广播时通过AMS到map查询注册了广播的BroadcastReceiver，通过ReceiverDispatcher将广播分发给各个订阅对象，从而完成这个发布——订阅过程。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/05/PackageParser和PMS - 读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PackageParser和PMS - 读书笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android源码中的观察者模式 - 读书笔记" data-title="Android源码中的观察者模式 - 读书笔记" data-url="http://yoursite.com/2016/06/07/Android源码中的观察者模式 - 读书笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Yangxijun
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
