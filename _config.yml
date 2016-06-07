@@ -69,5 +69,5 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/yangxijun/yangxijun.github.io.git
+  repository: ssh://github.com/yangxijun/yangxijun.github.io.git
   branch: master
