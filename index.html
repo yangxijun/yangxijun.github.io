@@ -148,6 +148,99 @@
 
       <div class="body-wrap">
   
+    <article id="post-onSaveInstanceState的详细讲解 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/" class="article-date">
+  	<time datetime="2016-06-13T14:15:26.936Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/">onSaveInstanceState的详细讲解 - 读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式"><a href="#来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式"></a>来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式</h1><hr>
+<h2 id="1-onSaveInstanceState简介"><a href="#1-onSaveInstanceState简介" class="headerlink" title="1. onSaveInstanceState简介"></a>1. onSaveInstanceState简介</h2><p>当Activity不是正常方式退出，且Activity在随后的时间被系统杀死之前就会调用这两个方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        outState.putBundle(WINDOW_HIERARCHY_TAG, mWindow.saveHierarchyState());</span><br><span class="line">        Parcelable p = mFragments.saveAllState();</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">            outState.putParcelable(FRAGMENTS_TAG, p);</span><br><span class="line">        &#125;</span><br><span class="line">        getApplication().dispatchActivitySaveInstanceState(<span class="keyword">this</span>, outState);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>主要分三步：</p>
+<ul>
+<li>存储窗口的视图树状态</li>
+<li>存储Fragment的状态</li>
+<li>调用Activity的onSaveInstanceState来存储状态</li>
+</ul>
+<h3 id="1-1-存储各种状态"><a href="#1-1-存储各种状态" class="headerlink" title="1.1 存储各种状态"></a>1.1 存储各种状态</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Bundle <span class="title">saveHierarchyState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       Bundle outState = <span class="keyword">new</span> Bundle();</span><br><span class="line">       <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> outState;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       SparseArray&lt;Parcelable&gt; states = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">       mContentParent.saveHierarchyState(states);</span><br><span class="line">       outState.putSparseParcelableArray(VIEWS_TAG, states);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// save the focused view id</span></span><br><span class="line">       View focusedView = mContentParent.findFocus();</span><br><span class="line">       <span class="keyword">if</span> (focusedView != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (focusedView.getId() != View.NO_ID) &#123;</span><br><span class="line">               outState.putInt(FOCUSED_ID_TAG, focusedView.getId());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// save the panels</span></span><br><span class="line">       SparseArray&lt;Parcelable&gt; panelStates = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">       savePanelState(panelStates);</span><br><span class="line">       <span class="keyword">if</span> (panelStates.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">           outState.putSparseParcelableArray(PANELS_TAG, panelStates);</span><br><span class="line">       &#125;</span><br><span class="line">	<span class="comment">// save the actionBar</span></span><br><span class="line">       <span class="keyword">if</span> (mDecorContentParent != <span class="keyword">null</span>) &#123;</span><br><span class="line">           SparseArray&lt;Parcelable&gt; actionBarStates = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">           mDecorContentParent.saveToolbarHierarchyState(actionBarStates);</span><br><span class="line">           outState.putSparseParcelableArray(ACTION_BAR_TAG, actionBarStates);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> outState;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>具体步骤：</p>
+<ul>
+<li>存储整棵视图树的结构</li>
+<li>存储获取了焦点的view</li>
+<li>存储整个面板状态</li>
+<li>存储ActionBar的状态</li>
+</ul>
+<p>我们只看如何存储整棵视图树的结构，这里mContentParent就是我们通过Activity的setContentView函数设置的内容视图，它是整个内容视图的根节点。直接看源代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveHierarchyState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       dispatchSaveInstanceState(container);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispatchSaveInstanceState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mID != NO_ID &amp;&amp; (mViewFlags &amp; SAVE_DISABLED_MASK) == <span class="number">0</span>) &#123;</span><br><span class="line">           mPrivateFlags &amp;= ~PFLAG_SAVE_STATE_CALLED;</span><br><span class="line">           Parcelable state = onSaveInstanceState();</span><br><span class="line">           <span class="keyword">if</span> ((mPrivateFlags &amp; PFLAG_SAVE_STATE_CALLED) == <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</span><br><span class="line">                       <span class="string">"Derived class did not call super.onSaveInstanceState()"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (state != <span class="keyword">null</span>) &#123;</span><br><span class="line">               container.put(mID, state);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>注意mID，如果View没有设置id时，这个View的状态不会被存储到Bundle中，因为之后还原时需要这个作为唯一key值。</p>
+<p>View类中的saveHierarchyState函数调用了dispatchSaveInstanceState函数来存储自身的状态，而ViewGroup则覆写了dispatchSaveInstanceState来存储自身以及子view视图，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispatchSaveInstanceState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.dispatchSaveInstanceState(container);</span><br><span class="line">       <span class="keyword">final</span> <span class="keyword">int</span> count = mChildrenCount;</span><br><span class="line">       <span class="keyword">final</span> View[] children = mChildren;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">           View c = children[i];</span><br><span class="line">           <span class="keyword">if</span> ((c.mViewFlags &amp; PARENT_SAVE_DISABLED_MASK) != PARENT_SAVE_DISABLED) &#123;</span><br><span class="line">               c.dispatchSaveInstanceState(container);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Bundle数据存储在哪？"><a href="#1-2-Bundle数据存储在哪？" class="headerlink" title="1.2 Bundle数据存储在哪？"></a>1.2 Bundle数据存储在哪？</h3><p>调用onSaveInstanceState是在Activity被销毁前，更确切的说法是在调用Activity的onStop之前。Activity的onStop在ActivityThread的performStopActivity中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">performStopActivity</span><span class="params">(IBinder token, <span class="keyword">boolean</span> saveState)</span> </span>&#123;</span><br><span class="line">       ActivityClientRecord r = mActivities.get(token);</span><br><span class="line">       performStopActivityInner(r, <span class="keyword">null</span>, <span class="keyword">false</span>, saveState);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performStopActivityInner</span><span class="params">(ActivityClientRecord r,</span><br><span class="line">           StopInfo info, <span class="keyword">boolean</span> keepShown, <span class="keyword">boolean</span> saveState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (r != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (info != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   info.description = r.activity.onCreateDescription();</span><br><span class="line">               &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                   ...</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// Next have the activity save its current state and managed dialogs...</span></span><br><span class="line">           <span class="keyword">if</span> (!r.activity.mFinished &amp;&amp; saveState) &#123;</span><br><span class="line">               <span class="keyword">if</span> (r.state == <span class="keyword">null</span>) &#123;</span><br><span class="line">                   callCallActivityOnSaveInstanceState(r);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!keepShown) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   <span class="comment">// Now we are idle.</span></span><br><span class="line">                   r.activity.performStop();</span><br><span class="line">               &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                 	...</span><br><span class="line">               &#125;</span><br><span class="line">               r.stopped = <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           r.paused = <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>这里很明显，在调用performStop前会调用callCallActivityOnSaveInstanceState。而状态信息存储到ActivityClientRecord的state字段中。</p>
+<h2 id="2-onSaveInstanceState的调用时机"><a href="#2-onSaveInstanceState的调用时机" class="headerlink" title="2. onSaveInstanceState的调用时机"></a>2. onSaveInstanceState的调用时机</h2><ul>
+<li>按下Home键</li>
+<li>长按Home键，选择运行其他程序</li>
+<li>按下电源键，屏幕关闭</li>
+<li>启动一个新的Activity</li>
+<li>屏幕方向切换</li>
+<li>电话打入等情况</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android源码中的观察者模式 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -843,78 +936,6 @@
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016年近期目标" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/25/2016年近期目标/" class="article-date">
-  	<time datetime="2016-04-25T15:59:22.469Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/25/2016年近期目标/">2016年近期目标</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="近期目标，按照时间顺序"><a href="#近期目标，按照时间顺序" class="headerlink" title="近期目标，按照时间顺序"></a>近期目标，按照时间顺序</h2><ul>
-<li><p>了解Volley源码</p>
-</li>
-<li><p>了解OkHttp源码</p>
-</li>
-<li><p>了解RecyclerView</p>
-</li>
-<li><p>阅读Android设计模式源码分析并开始写blog</p>
-</li>
-<li><p>写blog，至少一周一篇</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客，学习，目标/">博客，学习，目标</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/目标/">目标</a>
 	</div>
 
 
