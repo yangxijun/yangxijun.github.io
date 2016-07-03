@@ -1,110 +1,74 @@
-require([], function (){
+$(function() {
+  var $toc = $("#toc");
+  if (!!$toc.length && screen.width > 992 && $('.content').find('h2').length != 0) {
+    $("#toc").tocify({
+      context: '.article-content',
+      theme: 'bootstrap3',
+      selectors: 'h2,h3,h4'
+    });
 
-	var isMobileInit = false;
-	var loadMobile = function(){
-		require(['/js/mobile.js'], function(mobile){
-			mobile.init();
-			isMobileInit = true;
-		});
-	}
-	var isPCInit = false;
-	var loadPC = function(){
-		require(['/js/pc.js'], function(pc){
-			pc.init();
-			isPCInit = true;
-		});
-	}
+    //sticky the toc
+    var $window = $(window),
+      $stickyEl = $('#toc'),
+      elTop = $stickyEl.offset().top;
+    //for page refresh, we can right position the toc
+    $stickyEl.toggleClass('sticky-scroll', elTop > 155);
 
-	var browser={
-	    versions:function(){
-	    var u = window.navigator.userAgent;
-	    return {
-	        trident: u.indexOf('Trident') > -1, //IE内核
-	        presto: u.indexOf('Presto') > -1, //opera内核
-	        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-	        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-	        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-	        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-	        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-	        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-	        iPad: u.indexOf('iPad') > -1, //是否为iPad
-	        webApp: u.indexOf('Safari') == -1 ,//是否为web应用程序，没有头部与底部
-	        weixin: u.indexOf('MicroMessenger') == -1 //是否为微信浏览器
-	        };
-	    }()
-	}
+    //listen the window scroll
+    $window.scroll(function() {
+      elTop = $stickyEl.offset().top;
+      $stickyEl.toggleClass('sticky-scroll', elTop > 155);
+    });
 
-	$(window).bind("resize", function(){
-		if(isMobileInit && isPCInit){
-			$(window).unbind("resize");
-			return;
-		}
-		var w = $(window).width();
-		if(w >= 700){
-			loadPC();
-		}else{
-			loadMobile();
-		}
+  }
+
+	// image view
+	$('.content img').on('click',function(){
+		window.open($(this).attr('src'),'_blank');
 	});
 
-	if(browser.versions.mobile === true || $(window).width() < 700){
-		loadMobile();
-	}else{
-		loadPC();
-	}
+  // highlight the menu
+  menuHighlight();
 
-	//是否使用fancybox
-	if(yiliaConfig.fancybox === true){
-		require(['/fancybox/jquery.fancybox.js'], function(pc){
-			var isFancy = $(".isFancy");
-			if(isFancy.length != 0){
-				var imgArr = $(".article-inner img");
-				for(var i=0,len=imgArr.length;i<len;i++){
-					var src = imgArr.eq(i).attr("src");
-					var title = imgArr.eq(i).attr("alt");
-					imgArr.eq(i).replaceWith("<a href='"+src+"' title='"+title+"' rel='fancy-group' class='fancy-ctn fancybox'><img src='"+src+"' title='"+title+"'></a>");
-				}
-				$(".article-inner .fancy-ctn").fancybox();
-			}
-		});
-		
-	}
-	//是否开启动画
-	if(yiliaConfig.animate === true){
+  $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+      $('#gotop:hidden').stop(true, true).fadeIn();
+    } else {
+      $('#gotop').stop(true, true).fadeOut();
+    }
+  });
 
-		require(['/js/jquery.lazyload.js'], function(){
-			//avatar
-			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-			$(".js-avatar")[0].onload = function(){
-				$(".js-avatar").addClass("show");
-			}
-		});
-		
-		if(yiliaConfig.isHome === true){
-			//content
-			function showArticle(){
-				$(".article").each(function(){
-					if( $(this).offset().top <= $(window).scrollTop()+$(window).height() && !($(this).hasClass('show')) ) {
-						$(this).removeClass("hidden").addClass("show");
-						$(this).addClass("is-hiddened");
-					}else{
-						if(!$(this).hasClass("is-hiddened")){
-							$(this).addClass("hidden");
-						}
-					}
-				});
-			}
-			$(window).on('scroll', function(){
-				showArticle();
-			});
-			showArticle();
-		}
-		
-	}
-	
-	//是否新窗口打开链接
-	if(yiliaConfig.open_in_new == true){
-		$(".article a[href]").attr("target", "_blank")
-	}
-	
+	//  enable ripple on buttons
+	$.material.ripples();
+
+  //this is adapted from http://css-tricks.com/moving-highlight/
+  function menuHighlight() {
+    var originalBG = $(".nav li").css("background-color"),
+      x, y, xy, bgWebKit, bgMoz,
+      lightColor = "rgba(1, 164, 149, 1)",
+      gradientSize = 60;
+
+    $('.nav li')
+      .mousemove(function(e) {
+        x = e.pageX - this.offsetLeft;
+        y = e.pageY - this.offsetTop;
+        xy = x + " " + y;
+
+        bgWebKit = "-webkit-gradient(radial, " + xy + ", 0, " + xy + ", " + gradientSize + ", from(" + lightColor + "), to(rgba(0, 150, 136, 1.0))), " + originalBG;
+        bgMoz = "-moz-radial-gradient(" + x + "px " + y + "px 45deg, circle, " + lightColor + " 0%, rgba(0, 150, 136, 1.0) " + gradientSize + "px)";
+
+        $(this)
+          .css({
+            background: bgWebKit
+          })
+          .css({
+            background: bgMoz
+          });
+
+      }).mouseleave(function() {
+        $(this).css({
+          background: originalBG
+        });
+      });
+  }
 });

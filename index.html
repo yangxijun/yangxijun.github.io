@@ -1,1001 +1,318 @@
-<!DOCTYPE html>
+	<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Yangxijun&#39;s Blog</title>
+  <meta name="author" content="Yangxijun">
+  
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yangxijun's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Yangxijun's Blog">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yangxijun's Blog">
-<meta name="twitter:description">
+
   
-    <link rel="alternative" href="/atom.xml" title="Yangxijun&#39;s Blog" type="application/atom+xml">
+  <meta property="og:site_name" content="Yangxijun&#39;s Blog"/>
+
   
   
-    <link rel="icon" href="/favicon.png">
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#009688">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#009688">
+		<!-- favicon end -->
+    <!-- <link href="/favicon.ico" rel="icon"> -->
   
-  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- toc -->
+  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+
+  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- material design -->
+	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
+  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+  
+
+  
+
+  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
+
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Yangxijun</a></h1>
-		</hgroup>
-
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android源码设计模式解析与实战，读书笔记，Android/" style="font-size: 20px;">Android源码设计模式解析与实战，读书笔记，Android</a> <a href="/tags/博客，学习，目标/" style="font-size: 10px;">博客，学习，目标</a> <a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-			</div>
-		</div>
-	</header>				
-</div>
-
+ 	<body>
+	  <nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">菜单</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Yangxijun&#39;s Blog</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    <a href="/" title="">
+                    <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives" title="">
+                    <i class="fa fa-list"></i>存档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/about" title="">
+                    <i class="fa fa-info-circle"></i>关于
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/atom.xml" title="这是一个订阅源">
+                    <i class="fa fa-rss"></i>RSS
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Yangxijun</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1461255795&amp;di=a21cbbee9d1cf6779e560ffae83abd3d&amp;src=http://img5.duitang.com/uploads/item/201509/04/20150904194847_4isM8.thumb.224_0.jpeg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Yangxijun</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/yangxijun" title="github">github</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-Activity源码解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/03/Activity源码解析 - 读书笔记/" class="article-date">
-  	<time datetime="2016-07-03T15:22:18.291Z" itemprop="datePublished">2016-07-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/Activity源码解析 - 读书笔记/">Activity源码解析 - 读书笔记</a>
-    </h1>
-  
+	  <div class="container" >
+	    <div class="row">
+	
+	<div class="col-md-9">
+	
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"><a href="#来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"></a>来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式</h1><hr>
-<h2 id="1-Activity启动"><a href="#1-Activity启动" class="headerlink" title="1. Activity启动"></a>1. Activity启动</h2><p>Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心服务，这些服务承载着整个Android系统与客户端程序交互。zygote除了启动系统服务与进程之外，普通的用户进程也是由zygote进程fork而来，当一个进程启动起来后，就会加载用户在AndroidManifest.xml中配置的默认加载的Activity，此时加载的入口是ActivityThread.main方法，是整个程序的入口。</p>
-<p>main方法主要功能就是创建Application和Activity，并且调用Activity的生命周期函数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       SamplingProfilerIntegration.start();</span><br><span class="line">       CloseGuard.setEnabled(<span class="keyword">false</span>);</span><br><span class="line">       Environment.initForCurrentUser();</span><br><span class="line">       EventLogger.setReporter(<span class="keyword">new</span> EventLoggingReporter());</span><br><span class="line">       Security.addProvider(<span class="keyword">new</span> AndroidKeyStoreProvider());</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Make sure TrustedCertificateStore looks in the right place for CA certificates</span></span><br><span class="line">       <span class="keyword">final</span> File configDir = Environment.getUserConfigDirectory(UserHandle.myUserId());</span><br><span class="line">       TrustedCertificateStore.setDefaultUserDirectory(configDir);</span><br><span class="line"></span><br><span class="line">       Process.setArgV0(<span class="string">"&lt;pre-initialized&gt;"</span>);</span><br><span class="line"></span><br><span class="line">       Looper.prepareMainLooper();</span><br><span class="line"></span><br><span class="line">       ActivityThread thread = <span class="keyword">new</span> ActivityThread();</span><br><span class="line">       thread.attach(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (sMainThreadHandler == <span class="keyword">null</span>) &#123;</span><br><span class="line">           sMainThreadHandler = thread.getHandler();</span><br><span class="line">       &#125;</span><br><span class="line">       Looper.loop();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">attach</span><span class="params">(<span class="keyword">boolean</span> system)</span> </span>&#123;</span><br><span class="line">       sCurrentActivityThread = <span class="keyword">this</span>;</span><br><span class="line">       mSystemThread = system;</span><br><span class="line">       <span class="keyword">if</span> (!system) &#123;</span><br><span class="line">		...</span><br><span class="line">           android.ddm.DdmHandleAppName.setAppName(<span class="string">"&lt;pre-initialized&gt;"</span>,</span><br><span class="line">                                                   UserHandle.myUserId());</span><br><span class="line">           RuntimeInit.setApplicationObject(mAppThread.asBinder());</span><br><span class="line">           <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               mgr.attachApplication(mAppThread);</span><br><span class="line">           &#125; <span class="keyword">catch</span> (RemoteException ex) &#123;</span><br><span class="line">               <span class="comment">// Ignore</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>上述程序可以看到，在ActivityThread.main中主要的功能就是创建了UI线程消息循环，并启动循环消息循环。最重要的是创建了ActivityThread并调用了attach方法。在方法中又调用了AWS中的attachApplication方法。我们先看看ApplicationThread是什么</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationThread</span> <span class="keyword">extends</span> <span class="title">ApplicationThreadNative</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">scheduleResumeActivity</span><span class="params">(IBinder token, <span class="keyword">int</span> processState,</span><br><span class="line">			<span class="keyword">boolean</span> isForward, Bundle resumeArgs)</span> </span>&#123;</span><br><span class="line">		sendMessage(H.RESUME_ACTIVITY, token, isForward ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">    &#125;  	</span><br><span class="line">  	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">scheduleLaunchActivity</span><span class="params">(...)</span> </span>&#123;</span><br><span class="line">            updateProcessState(procState, <span class="keyword">false</span>);</span><br><span class="line">            ActivityClientRecord r = <span class="keyword">new</span> ActivityClientRecord();</span><br><span class="line"></span><br><span class="line">            r.token = token;</span><br><span class="line">            r.ident = ident;</span><br><span class="line">            r.intent = intent;</span><br><span class="line">            r.activityInfo = info</span><br><span class="line">            r.state = state;</span><br><span class="line">            updatePendingConfiguration(curConfig);</span><br><span class="line">			...</span><br><span class="line">            sendMessage(H.LAUNCH_ACTIVITY, r);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ApplicationThread通过handler管理Activity的生命周期。继续关注AWS中的attachApplication方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">attachApplication</span><span class="params">(IApplicationThread thread)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">           <span class="keyword">int</span> callingPid = Binder.getCallingPid();</span><br><span class="line">           <span class="keyword">final</span> <span class="keyword">long</span> origId = Binder.clearCallingIdentity();</span><br><span class="line">           attachApplicationLocked(thread, callingPid);</span><br><span class="line">           Binder.restoreCallingIdentity(origId);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">attachApplicationLocked</span><span class="params">(IApplicationThread thread,</span><br><span class="line">           <span class="keyword">int</span> pid)</span> </span>&#123;</span><br><span class="line">       ProcessRecord app;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           ...</span><br><span class="line">           thread.bindApplication(processName, appInfo, providers, app.instrumentationClass,</span><br><span class="line">                   profilerInfo, app.instrumentationArguments, app.instrumentationWatcher,</span><br><span class="line">                   app.instrumentationUiAutomationConnection, testMode, enableOpenGlTrace,</span><br><span class="line">                   isRestrictedBackupMode || !normalMode, app.persistent,</span><br><span class="line">                   <span class="keyword">new</span> Configuration(mConfiguration), app.compat,</span><br><span class="line">                   getCommonServicesLocked(app.isolated),</span><br><span class="line">                   mCoreSettingsObserver.getCoreSettingsLocked());</span><br><span class="line">           updateLruProcessLocked(app, <span class="keyword">false</span>, <span class="keyword">null</span>);</span><br><span class="line">           app.lastRequestedGc = app.lastLowMemory = SystemClock.uptimeMillis();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// See if the top visible activity is waiting to run in this process...</span></span><br><span class="line">       <span class="keyword">if</span> (normalMode) &#123;</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (mStackSupervisor.attachApplicationLocked(app)) &#123;</span><br><span class="line">                   didSomething = <span class="keyword">true</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>忽略些代码，这里关注mStackSupervisor.attachApplicationLocked(app)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">attachApplicationLocked</span><span class="params">(ProcessRecord app)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> String processName = app.processName;</span><br><span class="line">        <span class="keyword">boolean</span> didSomething = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> displayNdx = mActivityDisplays.size() - <span class="number">1</span>; displayNdx &gt;= <span class="number">0</span>; --displayNdx) &#123;</span><br><span class="line">            ArrayList&lt;ActivityStack&gt; stacks = mActivityDisplays.valueAt(displayNdx).mStacks;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> stackNdx = stacks.size() - <span class="number">1</span>; stackNdx &gt;= <span class="number">0</span>; --stackNdx) &#123;</span><br><span class="line">                <span class="keyword">final</span> ActivityStack stack = stacks.get(stackNdx);</span><br><span class="line">                <span class="keyword">if</span> (!isFrontStack(stack)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                ActivityRecord hr = stack.topRunningActivityLocked(<span class="keyword">null</span>);</span><br><span class="line">                <span class="keyword">if</span> (hr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (hr.app == <span class="keyword">null</span> &amp;&amp; app.uid == hr.info.applicationInfo.uid</span><br><span class="line">                            &amp;&amp; processName.equals(hr.processName)) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (realStartActivityLocked(hr, app, <span class="keyword">true</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">                                didSomething = <span class="keyword">true</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> didSomething;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这里会遍历整个Activity栈并且找出栈顶的ActivityStack，然后调用realStartActivityLocked来真正启动 Activity</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">realStartActivityLocked</span><span class="params">(ActivityRecord r,</span><br><span class="line">           ProcessRecord app, <span class="keyword">boolean</span> andResume, <span class="keyword">boolean</span> checkConfig)</span></span><br><span class="line">           <span class="keyword">throws</span> RemoteException </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> ActivityStack stack = r.task.stack;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           mService.ensurePackageDexOpt(r.intent.getComponent().getPackageName());</span><br><span class="line">           app.forceProcessStateUpTo(ActivityManager.PROCESS_STATE_TOP);</span><br><span class="line">           app.thread.scheduleLaunchActivity(<span class="keyword">new</span> Intent(r.intent), r.appToken,</span><br><span class="line">                   System.identityHashCode(r), r.info, <span class="keyword">new</span> Configuration(mService.mConfiguration),</span><br><span class="line">                   r.compat, r.launchedFromPackage, r.task.voiceInteractor, app.repProcState,</span><br><span class="line">                   r.icicle, r.persistentState, results, newIntents, !andResume,</span><br><span class="line">                   mService.isNextTransitionForward(), profilerInfo);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (RemoteException e) &#123;&#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>ActivityThread的内部类ApplicationThread的scheduleLaunchActivity方法。之后会调ActivityThread的handleLaunchActivity函数，再调用performLaunchActivity来创建Activity，并将Activity和Application关联上。然后调用onCreate方法。</p>
-<h2 id="2-setContentView"><a href="#2-setContentView" class="headerlink" title="2. setContentView"></a>2. setContentView</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(@LayoutRes <span class="keyword">int</span> layoutResID)</span> </span>&#123;</span><br><span class="line">       getWindow().setContentView(layoutResID);</span><br><span class="line">       initWindowDecorActionBar();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(<span class="keyword">int</span> layoutResID)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</span><br><span class="line">           installDecor();</span><br><span class="line">       &#125;</span><br><span class="line">       mLayoutInflater.inflate(layoutResID, mContentParent);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">installDecor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mDecor == <span class="keyword">null</span>) &#123;</span><br><span class="line">           mDecor = <span class="keyword">return</span> <span class="keyword">new</span> DecorView(getContext(), -<span class="number">1</span>);</span><br><span class="line">           mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);</span><br><span class="line">           mDecor.setIsRootNamespace(<span class="keyword">true</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</span><br><span class="line">           mContentParent = generateLayout(mDecor);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>setContentView基本流程</p>
-<ul>
-<li>构建mDecor对象</li>
-<li>设置窗口属性</li>
-<li>inflate布局</li>
-</ul>
+		<div class="content">
+			<!-- index -->
+		   
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/07/03/Activity源码解析 - 读书笔记/">Activity源码解析 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-07-03</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/06/24/AsyncTask源码解析 - 读书笔记/">AsyncTask源码解析 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-06-24</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/">onSaveInstanceState的详细讲解 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-06-13</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/">Android源码中的观察者模式 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-06-07</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/06/05/PackageParser和PMS - 读书笔记/">PackageParser和PMS - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-06-05</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/05/22/属性动画详解 - 读书笔记/">属性动画详解 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-05-22</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/05/17/onCreate方法的源头 - 读书笔记/">onCreate方法的源头 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-05-17</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/">WiFi管理的详情解析 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-05-17</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/05/11/MediaPlayerFactory - 读书笔记/">MediaPlayerFactory - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-05-11</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+		            <div class="index-item-wrapper">
+		              <h3>
+		                <a class="post-title" href="/2016/05/02/Intent的查找与匹配 - 读书笔记/">Intent的查找与匹配 - 读书笔记</a>
+		              </h3>
+									<span class="post-time">2016-05-02</span>
+		              <div class="excerpt"></div>
+		              
+		            </div>
+				
+				<!-- archives -->
+			  
+		</div>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
+		<!-- pagination -->
+	  
 
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
+			<div class="btn-group btn-group-justified">
+				
 
+					<a class="btn btn-default disabled" href="/" >Prev</a>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+					<a class="btn btn-default" href="/">Home</a>
 
+					<a class="btn btn-default " href="/page/2/" >Next</a>
 
+	    	
+			</div>
+	  
 
-
-
-
-
-
-
-  
-    <article id="post-AsyncTask源码解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/24/AsyncTask源码解析 - 读书笔记/" class="article-date">
-  	<time datetime="2016-06-24T15:39:39.754Z" itemprop="datePublished">2016-06-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/AsyncTask源码解析 - 读书笔记/">AsyncTask源码解析 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"><a href="#来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"></a>来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式</h1><hr>
-<h2 id="1-AsyncTask源码"><a href="#1-AsyncTask源码" class="headerlink" title="1. AsyncTask源码"></a>1. AsyncTask源码</h2><p>我们先看执行异步任务的入口execute方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">execute</span><span class="params">(Params... params)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> executeOnExecutor(sDefaultExecutor, params);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> AsyncTask&lt;Params, Progress, Result&gt; <span class="title">executeOnExecutor</span><span class="params">(Executor exec,</span><br><span class="line">           Params... params)</span> </span>&#123;</span><br><span class="line">       ...</span><br><span class="line">       mStatus = Status.RUNNING;</span><br><span class="line">       onPreExecute();</span><br><span class="line">       mWorker.mParams = params;</span><br><span class="line">       exec.execute(mFuture);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>在executeOnExecutor中，先执行了onPreExecute方法，然后将params传给mWorker对象，并且执行exec.execute(mFuture)方法。接下来我们看mWorker和mFuture。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mWorker = <span class="keyword">new</span> WorkerRunnable&lt;Params, Result&gt;() &#123;</span><br><span class="line">          <span class="function"><span class="keyword">public</span> Result <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">              mTaskInvoked.set(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">              Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);</span><br><span class="line">              <span class="comment">//noinspection unchecked</span></span><br><span class="line">              Result result = doInBackground(mParams);</span><br><span class="line">              Binder.flushPendingCommands();</span><br><span class="line">              <span class="keyword">return</span> postResult(result);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      mFuture = <span class="keyword">new</span> FutureTask&lt;Result&gt;(mWorker) &#123;</span><br><span class="line">          <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          	postResultIfNotInvoked(get());</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-<p>mFuture包装了mWorker对象，在这个mFuture对象的run函数中又会调用mWorker对象的call方法，在call方法中又调用了doInBackground函数。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-onSaveInstanceState的详细讲解 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/" class="article-date">
-  	<time datetime="2016-06-13T14:15:26.936Z" itemprop="datePublished">2016-06-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/">onSaveInstanceState的详细讲解 - 读书笔记</a>
-    </h1>
+		<div class="comment-section">
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式"><a href="#来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式"></a>来自Android源码设计模式解析与实战的第十三章，编程中的“后悔药”——备忘录模式</h1><hr>
-<h2 id="1-onSaveInstanceState简介"><a href="#1-onSaveInstanceState简介" class="headerlink" title="1. onSaveInstanceState简介"></a>1. onSaveInstanceState简介</h2><p>当Activity不是正常方式退出，且Activity在随后的时间被系统杀死之前就会调用这两个方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        outState.putBundle(WINDOW_HIERARCHY_TAG, mWindow.saveHierarchyState());</span><br><span class="line">        Parcelable p = mFragments.saveAllState();</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">            outState.putParcelable(FRAGMENTS_TAG, p);</span><br><span class="line">        &#125;</span><br><span class="line">        getApplication().dispatchActivitySaveInstanceState(<span class="keyword">this</span>, outState);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>主要分三步：</p>
-<ul>
-<li>存储窗口的视图树状态</li>
-<li>存储Fragment的状态</li>
-<li>调用Activity的onSaveInstanceState来存储状态</li>
-</ul>
-<h3 id="1-1-存储各种状态"><a href="#1-1-存储各种状态" class="headerlink" title="1.1 存储各种状态"></a>1.1 存储各种状态</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Bundle <span class="title">saveHierarchyState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       Bundle outState = <span class="keyword">new</span> Bundle();</span><br><span class="line">       <span class="keyword">if</span> (mContentParent == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> outState;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       SparseArray&lt;Parcelable&gt; states = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">       mContentParent.saveHierarchyState(states);</span><br><span class="line">       outState.putSparseParcelableArray(VIEWS_TAG, states);</span><br><span class="line"></span><br><span class="line">       <span class="comment">// save the focused view id</span></span><br><span class="line">       View focusedView = mContentParent.findFocus();</span><br><span class="line">       <span class="keyword">if</span> (focusedView != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (focusedView.getId() != View.NO_ID) &#123;</span><br><span class="line">               outState.putInt(FOCUSED_ID_TAG, focusedView.getId());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// save the panels</span></span><br><span class="line">       SparseArray&lt;Parcelable&gt; panelStates = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">       savePanelState(panelStates);</span><br><span class="line">       <span class="keyword">if</span> (panelStates.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">           outState.putSparseParcelableArray(PANELS_TAG, panelStates);</span><br><span class="line">       &#125;</span><br><span class="line">	<span class="comment">// save the actionBar</span></span><br><span class="line">       <span class="keyword">if</span> (mDecorContentParent != <span class="keyword">null</span>) &#123;</span><br><span class="line">           SparseArray&lt;Parcelable&gt; actionBarStates = <span class="keyword">new</span> SparseArray&lt;Parcelable&gt;();</span><br><span class="line">           mDecorContentParent.saveToolbarHierarchyState(actionBarStates);</span><br><span class="line">           outState.putSparseParcelableArray(ACTION_BAR_TAG, actionBarStates);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> outState;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>具体步骤：</p>
-<ul>
-<li>存储整棵视图树的结构</li>
-<li>存储获取了焦点的view</li>
-<li>存储整个面板状态</li>
-<li>存储ActionBar的状态</li>
-</ul>
-<p>我们只看如何存储整棵视图树的结构，这里mContentParent就是我们通过Activity的setContentView函数设置的内容视图，它是整个内容视图的根节点。直接看源代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveHierarchyState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       dispatchSaveInstanceState(container);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispatchSaveInstanceState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mID != NO_ID &amp;&amp; (mViewFlags &amp; SAVE_DISABLED_MASK) == <span class="number">0</span>) &#123;</span><br><span class="line">           mPrivateFlags &amp;= ~PFLAG_SAVE_STATE_CALLED;</span><br><span class="line">           Parcelable state = onSaveInstanceState();</span><br><span class="line">           <span class="keyword">if</span> ((mPrivateFlags &amp; PFLAG_SAVE_STATE_CALLED) == <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</span><br><span class="line">                       <span class="string">"Derived class did not call super.onSaveInstanceState()"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (state != <span class="keyword">null</span>) &#123;</span><br><span class="line">               container.put(mID, state);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>注意mID，如果View没有设置id时，这个View的状态不会被存储到Bundle中，因为之后还原时需要这个作为唯一key值。</p>
-<p>View类中的saveHierarchyState函数调用了dispatchSaveInstanceState函数来存储自身的状态，而ViewGroup则覆写了dispatchSaveInstanceState来存储自身以及子view视图，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispatchSaveInstanceState</span><span class="params">(SparseArray&lt;Parcelable&gt; container)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.dispatchSaveInstanceState(container);</span><br><span class="line">       <span class="keyword">final</span> <span class="keyword">int</span> count = mChildrenCount;</span><br><span class="line">       <span class="keyword">final</span> View[] children = mChildren;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">           View c = children[i];</span><br><span class="line">           <span class="keyword">if</span> ((c.mViewFlags &amp; PARENT_SAVE_DISABLED_MASK) != PARENT_SAVE_DISABLED) &#123;</span><br><span class="line">               c.dispatchSaveInstanceState(container);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-Bundle数据存储在哪？"><a href="#1-2-Bundle数据存储在哪？" class="headerlink" title="1.2 Bundle数据存储在哪？"></a>1.2 Bundle数据存储在哪？</h3><p>调用onSaveInstanceState是在Activity被销毁前，更确切的说法是在调用Activity的onStop之前。Activity的onStop在ActivityThread的performStopActivity中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">performStopActivity</span><span class="params">(IBinder token, <span class="keyword">boolean</span> saveState)</span> </span>&#123;</span><br><span class="line">       ActivityClientRecord r = mActivities.get(token);</span><br><span class="line">       performStopActivityInner(r, <span class="keyword">null</span>, <span class="keyword">false</span>, saveState);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performStopActivityInner</span><span class="params">(ActivityClientRecord r,</span><br><span class="line">           StopInfo info, <span class="keyword">boolean</span> keepShown, <span class="keyword">boolean</span> saveState)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (r != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (info != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   info.description = r.activity.onCreateDescription();</span><br><span class="line">               &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                   ...</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">// Next have the activity save its current state and managed dialogs...</span></span><br><span class="line">           <span class="keyword">if</span> (!r.activity.mFinished &amp;&amp; saveState) &#123;</span><br><span class="line">               <span class="keyword">if</span> (r.state == <span class="keyword">null</span>) &#123;</span><br><span class="line">                   callCallActivityOnSaveInstanceState(r);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!keepShown) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   <span class="comment">// Now we are idle.</span></span><br><span class="line">                   r.activity.performStop();</span><br><span class="line">               &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                 	...</span><br><span class="line">               &#125;</span><br><span class="line">               r.stopped = <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           r.paused = <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>这里很明显，在调用performStop前会调用callCallActivityOnSaveInstanceState。而状态信息存储到ActivityClientRecord的state字段中。</p>
-<h2 id="2-onSaveInstanceState的调用时机"><a href="#2-onSaveInstanceState的调用时机" class="headerlink" title="2. onSaveInstanceState的调用时机"></a>2. onSaveInstanceState的调用时机</h2><ul>
-<li>按下Home键</li>
-<li>长按Home键，选择运行其他程序</li>
-<li>按下电源键，屏幕关闭</li>
-<li>启动一个新的Activity</li>
-<li>屏幕方向切换</li>
-<li>电话打入等情况</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android源码中的观察者模式 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/" class="article-date">
-  	<time datetime="2016-06-07T15:11:12.329Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/">Android源码中的观察者模式 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式"><a href="#来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式"></a>来自Android源码设计模式解析与实战的第十二章，解决、解耦的钥匙——观察者模式</h1><hr>
-<h2 id="1-ListView中的观察者模式"><a href="#1-ListView中的观察者模式" class="headerlink" title="1. ListView中的观察者模式"></a>1. ListView中的观察者模式</h2><p>通常我们往ListView添加数据后，都会调用Adapter的notifyDataSetChanged方法，这就是一个观察者模式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyDataSetChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mDataSetObservable.notifyChanged();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(mObservers) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = mObservers.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                mObservers.get(i).onChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这个就是观察者模式主要特征，遍历所有项目一一通知。那么观察者从哪里来？其实是通过ListView的setAdapter方法产生的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAdapter</span><span class="params">(ListAdapter adapter)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mDataSetObserver != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mAdapter.unregisterDataSetObserver(mDataSetObserver);</span><br><span class="line">        &#125;</span><br><span class="line">     	...</span><br><span class="line">        <span class="comment">// AbsListView#setAdapter will update choice mode states.</span></span><br><span class="line">        <span class="keyword">super</span>.setAdapter(adapter);</span><br><span class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ...</span><br><span class="line">            mDataSetObserver = <span class="keyword">new</span> AdapterDataSetObserver();</span><br><span class="line">            mAdapter.registerDataSetObserver(mDataSetObserver);</span><br><span class="line">        &#125;</span><br><span class="line">      	...</span><br><span class="line">        requestLayout();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>在设置Adapter时会创建一个AdapterDataSetObserver，之后会注册到Adapter中。继续深入</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdapterDataSetObserver</span> <span class="keyword">extends</span> <span class="title">AdapterView</span>&lt;<span class="title">ListAdapter</span>&gt;.<span class="title">AdapterDataSetObserver</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onChanged();</span><br><span class="line">            <span class="keyword">if</span> (mFastScroll != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mFastScroll.onSectionsChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInvalidated</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onInvalidated();</span><br><span class="line">            <span class="keyword">if</span> (mFastScroll != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mFastScroll.onSectionsChanged();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mDataChanged = <span class="keyword">true</span>;</span><br><span class="line">            mOldItemCount = mItemCount;</span><br><span class="line">            mItemCount = getAdapter().getCount();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Detect the case where a cursor that was previously invalidated has</span></span><br><span class="line">            <span class="comment">// been repopulated with new data.</span></span><br><span class="line">            <span class="keyword">if</span> (AdapterView.<span class="keyword">this</span>.getAdapter().hasStableIds() &amp;&amp; mInstanceState != <span class="keyword">null</span></span><br><span class="line">                    &amp;&amp; mOldItemCount == <span class="number">0</span> &amp;&amp; mItemCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                AdapterView.<span class="keyword">this</span>.onRestoreInstanceState(mInstanceState);</span><br><span class="line">                mInstanceState = <span class="keyword">null</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rememberSyncState();</span><br><span class="line">            &#125;</span><br><span class="line">            checkFocus();</span><br><span class="line">            requestLayout();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>这里就知道了，在数据发送变化后，会调用notifyDataSetChanged函数，然后会调用其观察对象的onChanged方法，最后通知ListView重新布局，也就是这里的requestLayout。</p>
-<h2 id="2-BroadcastReceiver中的观察者模式"><a href="#2-BroadcastReceiver中的观察者模式" class="headerlink" title="2. BroadcastReceiver中的观察者模式"></a>2. BroadcastReceiver中的观察者模式</h2><h3 id="2-1-广播的注册"><a href="#2-1-广播的注册" class="headerlink" title="2.1  广播的注册"></a>2.1  广播的注册</h3><p>直接去ContextImpl中查找registerReceiver，其最后调用registerReceiverInternal</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Intent <span class="title">registerReceiverInternal</span><span class="params">(BroadcastReceiver receiver, <span class="keyword">int</span> userId,</span><br><span class="line">            IntentFilter filter, String broadcastPermission,</span><br><span class="line">            Handler scheduler, Context context)</span> </span>&#123;</span><br><span class="line">        IIntentReceiver rd = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (receiver != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mPackageInfo != <span class="keyword">null</span> &amp;&amp; context != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (scheduler == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    scheduler = mMainThread.getHandler();</span><br><span class="line">                &#125;</span><br><span class="line">                rd = mPackageInfo.getReceiverDispatcher(</span><br><span class="line">                    receiver, context, scheduler,</span><br><span class="line">                    mMainThread.getInstrumentation(), <span class="keyword">true</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (scheduler == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    scheduler = mMainThread.getHandler();</span><br><span class="line">                &#125;</span><br><span class="line">                rd = <span class="keyword">new</span> LoadedApk.ReceiverDispatcher(</span><br><span class="line">                        receiver, context, scheduler, <span class="keyword">null</span>, <span class="keyword">true</span>).getIIntentReceiver();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ActivityManagerNative.getDefault().registerReceiver(</span><br><span class="line">                    mMainThread.getApplicationThread(), mBasePackageName,</span><br><span class="line">                    rd, filter, broadcastPermission, userId);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这里看到，当外部传入的context不为空时，会调用getReceiverDispatcher方法，跟进去发现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IIntentReceiver <span class="title">getReceiverDispatcher</span><span class="params">(BroadcastReceiver r,</span><br><span class="line">            Context context, Handler handler,</span><br><span class="line">            Instrumentation instrumentation, <span class="keyword">boolean</span> registered)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mReceivers) &#123;</span><br><span class="line">            LoadedApk.ReceiverDispatcher rd = <span class="keyword">null</span>;</span><br><span class="line">            ArrayMap&lt;BroadcastReceiver, LoadedApk.ReceiverDispatcher&gt; map = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (registered) &#123;</span><br><span class="line">                map = mReceivers.get(context);</span><br><span class="line">                <span class="keyword">if</span> (map != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rd = map.get(r);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (rd == <span class="keyword">null</span>) &#123;</span><br><span class="line">                rd = <span class="keyword">new</span> ReceiverDispatcher(r, context, handler,</span><br><span class="line">                        instrumentation, registered);</span><br><span class="line">                <span class="keyword">if</span> (registered) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        map = <span class="keyword">new</span> ArrayMap&lt;BroadcastReceiver, LoadedApk.ReceiverDispatcher&gt;();</span><br><span class="line">                        mReceivers.put(context, map);</span><br><span class="line">                    &#125;</span><br><span class="line">                    map.put(r, rd);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rd.validate(context, handler);</span><br><span class="line">            &#125;</span><br><span class="line">            rd.mForgotten = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">return</span> rd.getIIntentReceiver();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>如果receiver在map中，直接取出，否则new一个ReceiverDispatcher，添加到map中，完成IIntentReceiver的获取。</p>
-<p>回到最早的registerReceiverInternal中，最后一步是将其注册到ActivityManagerService中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Intent <span class="title">registerReceiver</span><span class="params">(IApplicationThread caller, String callerPackage,</span><br><span class="line">            IIntentReceiver receiver, IntentFilter filter, String permission, <span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        ArrayList&lt;Intent&gt; allSticky = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (stickyIntents != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">final</span> ContentResolver resolver = mContext.getContentResolver();</span><br><span class="line">            <span class="comment">// Look for any matching sticky broadcasts...</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, N = stickyIntents.size(); i &lt; N; i++) &#123;</span><br><span class="line">                Intent intent = stickyIntents.get(i);</span><br><span class="line">                <span class="keyword">if</span> (filter.match(resolver, intent, <span class="keyword">true</span>, TAG) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (allSticky == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        allSticky = <span class="keyword">new</span> ArrayList&lt;Intent&gt;();</span><br><span class="line">                    &#125;</span><br><span class="line">                    allSticky.add(intent);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// The first sticky in the list is returned directly back to the client.</span></span><br><span class="line">        Intent sticky = allSticky != <span class="keyword">null</span> ? allSticky.get(<span class="number">0</span>) : <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (receiver == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> sticky;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (callerApp != <span class="keyword">null</span> &amp;&amp; (callerApp.thread == <span class="keyword">null</span></span><br><span class="line">                    || callerApp.thread.asBinder() != caller.asBinder())) &#123;</span><br><span class="line">                <span class="comment">// Original caller already died</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ReceiverList rl = mRegisteredReceivers.get(receiver.asBinder());</span><br><span class="line">            <span class="keyword">if</span> (rl == <span class="keyword">null</span>) &#123;</span><br><span class="line">                rl = <span class="keyword">new</span> ReceiverList(<span class="keyword">this</span>, callerApp, callingPid, callingUid,</span><br><span class="line">                        userId, receiver);</span><br><span class="line">                <span class="keyword">if</span> (rl.app != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rl.app.receivers.add(rl);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        receiver.asBinder().linkToDeath(rl, <span class="number">0</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                        <span class="keyword">return</span> sticky;</span><br><span class="line">                    &#125;</span><br><span class="line">                    rl.linkedToDeath = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                mRegisteredReceivers.put(receiver.asBinder(), rl);</span><br><span class="line">            &#125; </span><br><span class="line">          	...</span><br><span class="line">            BroadcastFilter bf = <span class="keyword">new</span> BroadcastFilter(filter, rl, callerPackage,</span><br><span class="line">                    permission, callingUid, userId);</span><br><span class="line">            rl.add(bf);</span><br><span class="line">            mReceiverResolver.addFilter(bf);</span><br><span class="line">			...</span><br><span class="line">            <span class="keyword">return</span> sticky;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这里主要做了几件事</p>
-<ul>
-<li>根据Action查找匹配的sticky接收器，也就是sendStickyBroadcast发送的广播类型</li>
-<li>获取对应的ReceiverList</li>
-<li>创建BroadcastFilter对象，并且添加到ReceiverList中</li>
-</ul>
-<p>完成了注册。</p>
-<h3 id="2-2-分发"><a href="#2-2-分发" class="headerlink" title="2.2 分发"></a>2.2 分发</h3><p>ActivityManagerService在消息循环中处理这个广播，并通过Binder机制把这个广播分发给ReceiverDispatcher中，完成异步分发。</p>
-<h3 id="2-3-处理"><a href="#2-3-处理" class="headerlink" title="2.3 处理"></a>2.3 处理</h3><p>ReceiverDispatcher内部类Args在MainActivity所在的消息循环中处理这个广播，最终是将这个广播发给注册的BroadcastReceiver实例的onReceiver函数进行处理：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">             <span class="keyword">final</span> BroadcastReceiver receiver = mReceiver;</span><br><span class="line">             <span class="keyword">final</span> <span class="keyword">boolean</span> ordered = mOrdered;</span><br><span class="line">             </span><br><span class="line">             <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</span><br><span class="line">             <span class="keyword">final</span> Intent intent = mCurIntent;</span><br><span class="line">             mCurIntent = <span class="keyword">null</span>;</span><br><span class="line">	...</span><br><span class="line">             <span class="keyword">try</span> &#123;</span><br><span class="line">                 ClassLoader cl =  mReceiver.getClass().getClassLoader();</span><br><span class="line">                 intent.setExtrasClassLoader(cl);</span><br><span class="line">                 setExtrasClassLoader(cl);</span><br><span class="line">                 receiver.setPendingResult(<span class="keyword">this</span>);</span><br><span class="line">                 receiver.onReceive(mContext, intent);</span><br><span class="line">             &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-总结"><a href="#2-4-总结" class="headerlink" title="2.4 总结"></a>2.4 总结</h3><p>广播，通过一些map存储BroadcastReceiver，key就是封装了这些广播信息。当发布广播时通过AMS到map查询注册了广播的BroadcastReceiver，通过ReceiverDispatcher将广播分发给各个订阅对象，从而完成这个发布——订阅过程。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-PackageParser和PMS - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/05/PackageParser和PMS - 读书笔记/" class="article-date">
-  	<time datetime="2016-06-05T04:01:45.000Z" itemprop="datePublished">2016-06-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/05/PackageParser和PMS - 读书笔记/">PackageParser和PMS - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式"><a href="#来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式"></a>来自Android源码设计模式解析与实战的第十章，化繁为简的翻译机——解释器模式</h1><hr>
-<h2 id="PackageParser"><a href="#PackageParser" class="headerlink" title="PackageParser"></a>PackageParser</h2><p>该类用于对AndroidManifest.xml中每一个组件标签创建了相应的类用以存储相应的信息</p>
-<p>类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">registerService(Context.WIFI_SERVICE, WifiManager.class,</span><br><span class="line">                <span class="keyword">new</span> CachedServiceFetcher&lt;WifiManager&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WifiManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            IBinder b = ServiceManager.getService(Context.WIFI_SERVICE);</span><br><span class="line">            IWifiManager service = IWifiManager.Stub.asInterface(b);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiManager(ctx.getOuterContext(), service);</span><br><span class="line">	&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样我们可以看到WiFi的具体控制是在WifiManager之中，我们可以找到改变wifi状态的方法setWifiEnable</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mService.setWifiEnabled(enabled);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>其中mService是IWifiManager，一个AIDL的方法，通过查看源码很容易发现其具体实现是在WifiServiceImpl中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enable)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    mWifiController.sendMessage(CMD_WIFI_TOGGLED);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这还不是真正实现功能的地方！实际上是通过mWifiController发送了一个CMD_WIFI_TOGGLED消息，其中mWifiController的类型为WifiController，sendMessage这个方法在WifiController的父类StateMachine中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">int</span> what)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// mSmHandler can be null if the state machine has quit.</span></span><br><span class="line">        SmHandler smh = mSmHandler;</span><br><span class="line">        <span class="keyword">if</span> (smh == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        smh.sendMessage(obtainMessage(what));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>那么我们继续查看SmHandler源码中的handleMessage方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!mHasQuit) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mDbg) mSm.log(<span class="string">"handleMessage: E msg.what="</span> + msg.what);</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** Save the current message */</span></span><br><span class="line">                mMsg = msg;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** State that processed the message */</span></span><br><span class="line">                State msgProcessedState = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (mIsConstructionCompleted) &#123;</span><br><span class="line">                    <span class="comment">/** Normal path */</span></span><br><span class="line">                    msgProcessedState = processMsg(msg);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mIsConstructionCompleted &amp;&amp; (mMsg.what == SM_INIT_CMD)</span><br><span class="line">                        &amp;&amp; (mMsg.obj == mSmHandlerObj)) &#123;</span><br><span class="line">                    <span class="comment">/** Initial one time path. */</span></span><br><span class="line">                    mIsConstructionCompleted = <span class="keyword">true</span>;</span><br><span class="line">                    invokeEnterMethods(<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"StateMachine.handleMessage: "</span></span><br><span class="line">                            + <span class="string">"The start method not called, received msg: "</span> + msg);</span><br><span class="line">                &#125;</span><br><span class="line">                performTransitions(msgProcessedState, msg);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// We need to check if mSm == null here as we could be quitting.</span></span><br><span class="line">                <span class="keyword">if</span> (mDbg &amp;&amp; mSm != <span class="keyword">null</span>) mSm.log(<span class="string">"handleMessage: X"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>处理消息的方法就是processMsg，处理完成之后会调用performTransitions</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performTransitions</span><span class="params">(State msgProcessedState, Message msg)</span> </span>&#123;</span><br><span class="line">           State orgState = mStateStack[mStateStackTopIndex].state;</span><br><span class="line">           <span class="keyword">boolean</span> recordLogMsg = mSm.recordLogRec(mMsg) &amp;&amp; (msg.obj != mSmHandlerObj)</span><br><span class="line"></span><br><span class="line">           State destState = mDestState;</span><br><span class="line">           <span class="keyword">if</span> (destState != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="comment">/**</span><br><span class="line">                * Process the transitions including transitions in the enter/exit methods</span><br><span class="line">                */</span></span><br><span class="line">               <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                   StateInfo commonStateInfo = setupTempStateStackWithStatesToEnter(destState);</span><br><span class="line">                   invokeEnterMethods(commonStateInfo);</span><br><span class="line">                   <span class="keyword">int</span> stateStackEnteringIndex = moveTempStateStackToStateStack();</span><br><span class="line">                   invokeEnterMethods(stateStackEnteringIndex);</span><br><span class="line"></span><br><span class="line">                   moveDeferredMessageAtFrontOfQueue();</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (destState != mDestState) &#123;</span><br><span class="line">                       <span class="comment">// A new mDestState so continue looping</span></span><br><span class="line">                       destState = mDestState;</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       <span class="comment">// No change in mDestState so we're done</span></span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">               mDestState = <span class="keyword">null</span>;</span><br><span class="line">           &#125;</span><br><span class="line">		....</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<p>这其中的invokeEnterMethods和invokeEnterMethods可以发现运用了状态模式，其接口是IState</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IState</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">enter</span><span class="params">()</span></span>;</span><br><span class="line">  	</span><br><span class="line">  	<span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span></span>;</span><br><span class="line">  </span><br><span class="line">  	<span class="function"><span class="keyword">boolean</span> <span class="title">processMessage</span><span class="params">(Message msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>状态之间是不可以随意切换的，它们有一种层级关系，这些关系在StateMachine中被定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">addState(mDefaultState);</span><br><span class="line">addState(mInitialState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartingState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartedState, mDefaultState);</span><br><span class="line">addState(mDriverStartingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStartedState, mSupplicantStartedState);</span><br><span class="line">addState(mScanModeState, mDriverStartedState);</span><br><span class="line">addState(mConnectModeState, mDriverStartedState);</span><br><span class="line">addState(mL2ConnectedState, mConnectModeState);</span><br><span class="line">addState(mObtainingIpState, mL2ConnectedState);</span><br><span class="line">addState(mVerifyingLinkState, mL2ConnectedState);</span><br><span class="line">addState(mConnectedState, mL2ConnectedState);</span><br><span class="line">addState(mRoamingState, mL2ConnectedState);</span><br><span class="line">addState(mDisconnectingState, mConnectModeState);</span><br><span class="line">addState(mDisconnectedState, mConnectModeState);</span><br><span class="line">addState(mWpsRunningState, mConnectModeState);</span><br><span class="line">addState(mWaitForP2pDisableState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppedState, mSupplicantStartedState);</span><br><span class="line">addState(mSupplicantStoppingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartedState, mDefaultState);</span><br><span class="line">addState(mTetheringState, mSoftApStartedState);</span><br><span class="line">addState(mTetheredState, mSoftApStartedState);</span><br><span class="line">addState(mUntetheringState, mSoftApStartedState);</span><br><span class="line"></span><br><span class="line">setInitialState(mInitialState);</span><br></pre></td></tr></table></figure>
-<p>其中addState最终都会调用SmHandler中的addState方法，从而绑定关系</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-属性动画详解 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/22/属性动画详解 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-22T15:05:50.460Z" itemprop="datePublished">2016-05-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/22/属性动画详解 - 读书笔记/">属性动画详解 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第七章，时势造英雄——策略模式"><a href="#来自Android源码设计模式解析与实战的第七章，时势造英雄——策略模式" class="headerlink" title="来自Android源码设计模式解析与实战的第七章，时势造英雄——策略模式"></a>来自Android源码设计模式解析与实战的第七章，时势造英雄——策略模式</h1><hr>
-<h2 id="策略模式的定义"><a href="#策略模式的定义" class="headerlink" title="策略模式的定义"></a>策略模式的定义</h2><p>策略模式定义了一系列的算法，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化。</p>
-<h2 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性动画的入口</span></span><br><span class="line">ValueAnimator anim = ObjectAnimator.ofFloat();</span><br></pre></td></tr></table></figure>
-<p>跟进去后可以发现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ObjectAnimator <span class="title">ofFloat</span><span class="params">(Object target, String propertyName, <span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">        ObjectAnimator anim = <span class="keyword">new</span> ObjectAnimator(target, propertyName);</span><br><span class="line">        anim.setFloatValues(values);</span><br><span class="line">        <span class="keyword">return</span> anim;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFloatValues</span><span class="params">(<span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (mValues == <span class="keyword">null</span> || mValues.length == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="comment">// whatever the current propertyName is</span></span><br><span class="line">        <span class="keyword">if</span> (mProperty != <span class="keyword">null</span>) &#123;</span><br><span class="line">            setValues(PropertyValuesHolder.ofFloat(mProperty, values));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setValues(PropertyValuesHolder.ofFloat(mPropertyName, values));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.setFloatValues(values);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在setFloatValues中出现一个类PropertyValuesHolder，这个类是该动画库的一个核心类之一，它的作用就是保存属性的名称和它的setter、getter方法，以及它的目标值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PropertyValuesHolder <span class="title">ofFloat</span><span class="params">(Property&lt;?, Float&gt; property, <span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FloatPropertyValuesHolder(property, values);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">FloatPropertyValuesHolder</span><span class="params">(Property property, <span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(property);</span><br><span class="line">    setFloatValues(values);</span><br><span class="line">    <span class="keyword">if</span> (property <span class="keyword">instanceof</span>  FloatProperty) &#123;</span><br><span class="line">        mFloatProperty = (FloatProperty) mProperty;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFloatValues</span><span class="params">(<span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.setFloatValues(values);</span><br><span class="line">	mFloatKeyframes = (Keyframes.FloatKeyframes) mKeyframes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFloatValues</span><span class="params">(<span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">	mValueType = <span class="keyword">float</span>.class;</span><br><span class="line">	mKeyframes = KeyframeSet.ofFloat(values);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里看到，一直会调用到KeyFrameSet的ofFloat方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> KeyframeSet <span class="title">ofFloat</span><span class="params">(<span class="keyword">float</span>... values)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">boolean</span> badValue = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">int</span> numKeyframes = values.length;</span><br><span class="line">    FloatKeyframe keyframes[] = <span class="keyword">new</span> FloatKeyframe[Math.max(numKeyframes,<span class="number">2</span>)];</span><br><span class="line">    <span class="keyword">if</span> (numKeyframes == <span class="number">1</span>) &#123;</span><br><span class="line">        keyframes[<span class="number">0</span>] = (FloatKeyframe) Keyframe.ofFloat(<span class="number">0f</span>);</span><br><span class="line">        keyframes[<span class="number">1</span>] = (FloatKeyframe) Keyframe.ofFloat(<span class="number">1f</span>, values[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">if</span> (Float.isNaN(values[<span class="number">0</span>])) &#123;</span><br><span class="line">            badValue = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        keyframes[<span class="number">0</span>] = (FloatKeyframe) Keyframe.ofFloat(<span class="number">0f</span>, values[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numKeyframes; ++i) &#123;</span><br><span class="line">            keyframes[i] = (FloatKeyframe) Keyframe.ofFloat((<span class="keyword">float</span>) i </span><br><span class="line">            	/ (numKeyframes - <span class="number">1</span>), values[i]);</span><br><span class="line">            <span class="keyword">if</span> (Float.isNaN(values[i])) &#123;</span><br><span class="line">                badValue = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (badValue) &#123;</span><br><span class="line">        Log.w(<span class="string">"Animator"</span>, <span class="string">"Bad value (NaN) in float animator"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FloatKeyframeSet(keyframes);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>设置完关键帧喉，我们就会调用start()方法启动该动画了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    start(<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(<span class="keyword">boolean</span> playBackwards)</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">    AnimationHandler animationHandler = getOrCreateAnimationHandler();</span><br><span class="line">	animationHandler.mPendingAnimations.add(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">if</span> (mStartDelay == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// This sets the initial value of the animation, prior to actually starting it running</span></span><br><span class="line">        <span class="keyword">if</span> (prevPlayingState != SEEKED) &#123;</span><br><span class="line">            setCurrentPlayTime(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mPlayingState = STOPPED;</span><br><span class="line">        mRunning = <span class="keyword">true</span>;</span><br><span class="line">        notifyStartListeners();</span><br><span class="line">    &#125;</span><br><span class="line">    animationHandler.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里很明显AnimationHandler是用于控制整个动画的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Start animating on the next frame.</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	scheduleAnimation();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scheduleAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!mAnimationScheduled) &#123;</span><br><span class="line">		mChoreographer.postCallback(Choreographer.CALLBACK_ANIMATION, mAnimate, <span class="keyword">null</span>);</span><br><span class="line">        mAnimationScheduled = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Called by the Choreographer.</span></span><br><span class="line"><span class="keyword">final</span> Runnable mAnimate = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	mAnimationScheduled = <span class="keyword">false</span>;</span><br><span class="line">        doAnimationFrame(mChoreographer.getFrameTime());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">doAnimationFrame</span><span class="params">(<span class="keyword">long</span> frameTime)</span> </span>&#123;</span><br><span class="line">            mLastFrameTime = frameTime;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// mPendingAnimations holds any animations that have requested to be started</span></span><br><span class="line">            <span class="comment">// We're going to clear mPendingAnimations, but starting animation may</span></span><br><span class="line">            <span class="comment">// cause more to be added to the pending list (for example, if one animation</span></span><br><span class="line">            <span class="comment">// starting triggers another starting). So we loop until mPendingAnimations</span></span><br><span class="line">            <span class="comment">// is empty.</span></span><br><span class="line">            <span class="keyword">while</span> (mPendingAnimations.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                ArrayList&lt;ValueAnimator&gt; pendingCopy =</span><br><span class="line">                        (ArrayList&lt;ValueAnimator&gt;) mPendingAnimations.clone();</span><br><span class="line">                mPendingAnimations.clear();</span><br><span class="line">                <span class="keyword">int</span> count = pendingCopy.size();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; ++i) &#123;</span><br><span class="line">                    ValueAnimator anim = pendingCopy.get(i);</span><br><span class="line">                    <span class="comment">// If the animation has a startDelay, place it on the delayed list</span></span><br><span class="line">                    <span class="keyword">if</span> (anim.mStartDelay == <span class="number">0</span>) &#123;</span><br><span class="line">                        anim.startAnimation(<span class="keyword">this</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        mDelayedAnims.add(anim);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Next, process animations currently sitting on the delayed queue, adding</span></span><br><span class="line">            <span class="comment">// them to the active animations if they are ready</span></span><br><span class="line">            <span class="keyword">int</span> numDelayedAnims = mDelayedAnims.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numDelayedAnims; ++i) &#123;</span><br><span class="line">                ValueAnimator anim = mDelayedAnims.get(i);</span><br><span class="line">                <span class="keyword">if</span> (anim.delayedAnimationFrame(frameTime)) &#123;</span><br><span class="line">                    mReadyAnims.add(anim);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> numReadyAnims = mReadyAnims.size();</span><br><span class="line">            <span class="keyword">if</span> (numReadyAnims &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numReadyAnims; ++i) &#123;</span><br><span class="line">                    ValueAnimator anim = mReadyAnims.get(i);</span><br><span class="line">                    anim.startAnimation(<span class="keyword">this</span>);</span><br><span class="line">                    anim.mRunning = <span class="keyword">true</span>;</span><br><span class="line">                    mDelayedAnims.remove(anim);</span><br><span class="line">                &#125;</span><br><span class="line">                mReadyAnims.clear();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Now process all active animations. The return value from animationFrame()</span></span><br><span class="line">            <span class="comment">// tells the handler whether it should now be ended</span></span><br><span class="line">            <span class="keyword">int</span> numAnims = mAnimations.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numAnims; ++i) &#123;</span><br><span class="line">                mTmpAnimations.add(mAnimations.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numAnims; ++i) &#123;</span><br><span class="line">                ValueAnimator anim = mTmpAnimations.get(i);</span><br><span class="line">                <span class="keyword">if</span> (mAnimations.contains(anim) &amp;&amp; anim.doAnimationFrame(frameTime)) &#123;</span><br><span class="line">                    mEndingAnims.add(anim);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            mTmpAnimations.clear();</span><br><span class="line">            <span class="keyword">if</span> (mEndingAnims.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mEndingAnims.size(); ++i) &#123;</span><br><span class="line">                    mEndingAnims.get(i).endAnimation(<span class="keyword">this</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                mEndingAnims.clear();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Schedule final commit for the frame.</span></span><br><span class="line">            mChoreographer.postCallback(Choreographer.CALLBACK_COMMIT, mCommit, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// If there are still active or delayed animations, schedule a future call to</span></span><br><span class="line">            <span class="comment">// onAnimate to process the next frame of the animations.</span></span><br><span class="line">            <span class="keyword">if</span> (!mAnimations.isEmpty() || !mDelayedAnims.isEmpty()) &#123;</span><br><span class="line">                scheduleAnimation();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>该函数将各类动画依照当前状态分为好几类，这里先看Pending动画的startAnimation</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Called internally to start an animation by adding it to the active animations list.</span><br><span class="line"> * called on the UI thread.</span><br><span class="line"> */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startAnimation</span><span class="params">(AnimationHandler handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Trace.isTagEnabled(Trace.TRACE_TAG_VIEW)) &#123;</span><br><span class="line">            Trace.asyncTraceBegin(Trace.TRACE_TAG_VIEW, getNameForTrace(),</span><br><span class="line">                    System.identityHashCode(<span class="keyword">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        initAnimation();</span><br><span class="line">        handler.mAnimations.add(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">if</span> (mStartDelay &gt; <span class="number">0</span> &amp;&amp; mListeners != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// Listeners were already notified in start() if startDelay is 0; this is</span></span><br><span class="line">            <span class="comment">// just for delayed animations</span></span><br><span class="line">            notifyStartListeners();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这里看到在动画初始化时，将之加到AnimationHandler的mAnimations中，并用notifyStartListeners中执行了相应回调方法。</p>
-<p>我们看看ObjectAnimator中的initAnimation函数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">initAnimation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!mInitialized) &#123;</span><br><span class="line">            <span class="comment">// mValueType may change due to setter/getter setup; do this before calling 			// super.init(),</span></span><br><span class="line">            <span class="comment">// which uses mValueType to set up the default type evaluator.</span></span><br><span class="line">            <span class="keyword">final</span> Object target = getTarget();</span><br><span class="line">            <span class="keyword">if</span> (target != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">final</span> <span class="keyword">int</span> numValues = mValues.length;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numValues; ++i) &#123;</span><br><span class="line">                    mValues[i].setupSetterAndGetter(target);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">super</span>.initAnimation();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>mValues的类型是PropertyValuesHolder[]，查看该类的setupSetterAndGetter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setupSetterAndGetter</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">        mKeyframes.invalidateCache();</span><br><span class="line">        <span class="keyword">if</span> (mProperty != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// check to make sure that mProperty is on the class of target</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Object testValue = <span class="keyword">null</span>;</span><br><span class="line">                List&lt;Keyframe&gt; keyframes = mKeyframes.getKeyframes();</span><br><span class="line">                <span class="keyword">int</span> keyframeCount = keyframes == <span class="keyword">null</span> ? <span class="number">0</span> : keyframes.size();</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keyframeCount; i++) &#123;</span><br><span class="line">                    Keyframe kf = keyframes.get(i);</span><br><span class="line">                    <span class="keyword">if</span> (!kf.hasValue() || kf.valueWasSetOnStart()) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (testValue == <span class="keyword">null</span>) &#123;</span><br><span class="line">                            testValue = convertBack(mProperty.get(target));</span><br><span class="line">                        &#125;</span><br><span class="line">                        kf.setValue(testValue);</span><br><span class="line">                        kf.setValueWasSetOnStart(<span class="keyword">true</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ClassCastException e) &#123;</span><br><span class="line">                Log.w(<span class="string">"PropertyValuesHolder"</span>,<span class="string">"No such property ("</span> + mProperty.getName() +</span><br><span class="line">                        <span class="string">") on target object "</span> + target + <span class="string">". Trying reflection instead"</span>);</span><br><span class="line">                mProperty = <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// We can't just say 'else' here because the catch statement sets mProperty to null.</span></span><br><span class="line">        <span class="keyword">if</span> (mProperty == <span class="keyword">null</span>) &#123;</span><br><span class="line">            Class targetClass = target.getClass();</span><br><span class="line">            <span class="keyword">if</span> (mSetter == <span class="keyword">null</span>) &#123;</span><br><span class="line">                setupSetter(targetClass);</span><br><span class="line">            &#125;</span><br><span class="line">            List&lt;Keyframe&gt; keyframes = mKeyframes.getKeyframes();</span><br><span class="line">            <span class="keyword">int</span> keyframeCount = keyframes == <span class="keyword">null</span> ? <span class="number">0</span> : keyframes.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keyframeCount; i++) &#123;</span><br><span class="line">                Keyframe kf = keyframes.get(i);</span><br><span class="line">                <span class="keyword">if</span> (!kf.hasValue() || kf.valueWasSetOnStart()) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (mGetter == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        setupGetter(targetClass);</span><br><span class="line">                        <span class="keyword">if</span> (mGetter == <span class="keyword">null</span>) &#123;</span><br><span class="line">                            <span class="comment">// Already logged the error - just return to avoid NPE</span></span><br><span class="line">                            <span class="keyword">return</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Object value = convertBack(mGetter.invoke(target));</span><br><span class="line">                        kf.setValue(value);</span><br><span class="line">                        kf.setValueWasSetOnStart(<span class="keyword">true</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">                        Log.e(<span class="string">"PropertyValuesHolder"</span>, e.toString());</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                        Log.e(<span class="string">"PropertyValuesHolder"</span>, e.toString());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>主要看2个if语句，第一个是用于判断该属性是否存在，如果存在就直接设值；如果不存在，则分别判断setter和getter存在性后，调用setupSetter(targetClass)和setupGetter(targetClass)</p>
-<p>首先观察setupSetter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * Utility function to get the setter from targetClass</span><br><span class="line">     * <span class="doctag">@param</span> targetClass The Class on which the requested method should exist.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setupSetter</span><span class="params">(Class targetClass)</span> </span>&#123;</span><br><span class="line">        Class&lt;?&gt; propertyType = mConverter == <span class="keyword">null</span> ? mValueType : mConverter.getTargetType();</span><br><span class="line">        mSetter = setupSetterOrGetter(targetClass, sSetterPropertyMap, <span class="string">"set"</span>, propertyType);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Utility function to get the getter from targetClass</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setupGetter</span><span class="params">(Class targetClass)</span> </span>&#123;</span><br><span class="line">        mGetter = setupSetterOrGetter(targetClass, sGetterPropertyMap, <span class="string">"get"</span>, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>他们都是调用setupSetterOrGetter函数，继续观察</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Method <span class="title">setupSetterOrGetter</span><span class="params">(Class targetClass,</span><br><span class="line">            HashMap&lt;Class, HashMap&lt;String, Method&gt;&gt; propertyMapMap,</span><br><span class="line">            String prefix, Class valueType)</span> </span>&#123;</span><br><span class="line">        Method setterOrGetter = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">synchronized</span>(propertyMapMap) &#123;</span><br><span class="line">            <span class="comment">// Have to lock property map prior to reading it, to guard against</span></span><br><span class="line">            <span class="comment">// another thread putting something in there after we've checked it</span></span><br><span class="line">            <span class="comment">// but before we've added an entry to it</span></span><br><span class="line">            HashMap&lt;String, Method&gt; propertyMap = propertyMapMap.get(targetClass);</span><br><span class="line">            <span class="keyword">boolean</span> wasInMap = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (propertyMap != <span class="keyword">null</span>) &#123;</span><br><span class="line">                wasInMap = propertyMap.containsKey(mPropertyName);</span><br><span class="line">                <span class="keyword">if</span> (wasInMap) &#123;</span><br><span class="line">                    setterOrGetter = propertyMap.get(mPropertyName);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!wasInMap) &#123;</span><br><span class="line">                setterOrGetter = getPropertyFunction(targetClass, prefix, valueType);</span><br><span class="line">                <span class="keyword">if</span> (propertyMap == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    propertyMap = <span class="keyword">new</span> HashMap&lt;String, Method&gt;();</span><br><span class="line">                    propertyMapMap.put(targetClass, propertyMap);</span><br><span class="line">                &#125;</span><br><span class="line">                propertyMap.put(mPropertyName, setterOrGetter);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> setterOrGetter;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这就可以知道，在getPropertyFunction中利用反射拿到对应getter和setter方法，以上就是初始化中做的。</p>
-<p>回到doAnimationFrame中， 对于正在进行的动画</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Now process all active animations. The return value from animationFrame()</span></span><br><span class="line">            <span class="comment">// tells the handler whether it should now be ended</span></span><br><span class="line">            <span class="keyword">int</span> numAnims = mAnimations.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numAnims; ++i) &#123;</span><br><span class="line">                mTmpAnimations.add(mAnimations.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numAnims; ++i) &#123;</span><br><span class="line">                ValueAnimator anim = mTmpAnimations.get(i);</span><br><span class="line">                <span class="keyword">if</span> (mAnimations.contains(anim) &amp;&amp; anim.doAnimationFrame(frameTime)) &#123;</span><br><span class="line">                    mEndingAnims.add(anim);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<p>其中doAnimationFrame是一个关键函数，会调用boolean animationFrame(long currentTime) ，之后会调用ObjectAnimator中的void animateValue(float fraction)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">animateValue</span><span class="params">(<span class="keyword">float</span> fraction)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Object target = getTarget();</span><br><span class="line">        <span class="keyword">if</span> (mTarget != <span class="keyword">null</span> &amp;&amp; target == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// We lost the target reference, cancel and clean up.</span></span><br><span class="line">            cancel();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">super</span>.animateValue(fraction);</span><br><span class="line">        <span class="keyword">int</span> numValues = mValues.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numValues; ++i) &#123;</span><br><span class="line">            mValues[i].setAnimatedValue(target);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>例子中的PropertyValuesHolder是FloatPropertyValuesHolder类型，因此</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">setAnimatedValue</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (mFloatProperty != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mFloatProperty.setValue(target, mFloatAnimatedValue);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mProperty != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mProperty.set(target, mFloatAnimatedValue);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mJniSetter != <span class="number">0</span>) &#123;</span><br><span class="line">                nCallFloatMethod(target, mJniSetter, mFloatAnimatedValue);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mSetter != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    mTmpValueArray[<span class="number">0</span>] = mFloatAnimatedValue;</span><br><span class="line">                    mSetter.invoke(target, mTmpValueArray);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">                    Log.e(<span class="string">"PropertyValuesHolder"</span>, e.toString());</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                    Log.e(<span class="string">"PropertyValuesHolder"</span>, e.toString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>这里的步骤就是：</p>
-<ul>
-<li>如果有float property，就直接setValue</li>
-<li>如果有属性，则通过set来更新</li>
-<li>调用nCallFloatMethod来更新</li>
-<li>最后通过反射来调用属性的setter函数来更新属性值</li>
-</ul>
-<h2 id="属性动画就讲到这"><a href="#属性动画就讲到这" class="headerlink" title="属性动画就讲到这"></a>属性动画就讲到这</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-WiFi管理的详情解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/WiFi管理的详情解析 - 读书笔记/">WiFi管理的详情解析 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"><a href="#来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式" class="headerlink" title="来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式"></a>来自Android源码设计模式解析与实战的第八章，随遇而安——状态模式</h1><hr>
-<h2 id="WiFi状态的入口"><a href="#WiFi状态的入口" class="headerlink" title="WiFi状态的入口"></a>WiFi状态的入口</h2><p>类似之前的方法，我们可以从SystemServiceRegistry中找到对应Context.WIFI_SERVICE的具体实现方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">registerService(Context.WIFI_SERVICE, WifiManager.class,</span><br><span class="line">                <span class="keyword">new</span> CachedServiceFetcher&lt;WifiManager&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WifiManager <span class="title">createService</span><span class="params">(ContextImpl ctx)</span> </span>&#123;</span><br><span class="line">            IBinder b = ServiceManager.getService(Context.WIFI_SERVICE);</span><br><span class="line">            IWifiManager service = IWifiManager.Stub.asInterface(b);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiManager(ctx.getOuterContext(), service);</span><br><span class="line">	&#125;&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样我们可以看到WiFi的具体控制是在WifiManager之中，我们可以找到改变wifi状态的方法setWifiEnable</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mService.setWifiEnabled(enabled);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>其中mService是IWifiManager，一个AIDL的方法，通过查看源码很容易发现其具体实现是在WifiServiceImpl中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">setWifiEnabled</span><span class="params">(<span class="keyword">boolean</span> enable)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    mWifiController.sendMessage(CMD_WIFI_TOGGLED);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这还不是真正实现功能的地方！实际上是通过mWifiController发送了一个CMD_WIFI_TOGGLED消息，其中mWifiController的类型为WifiController，sendMessage这个方法在WifiController的父类StateMachine中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">sendMessage</span><span class="params">(<span class="keyword">int</span> what)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// mSmHandler can be null if the state machine has quit.</span></span><br><span class="line">        SmHandler smh = mSmHandler;</span><br><span class="line">        <span class="keyword">if</span> (smh == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        smh.sendMessage(obtainMessage(what));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>那么我们继续查看SmHandler源码中的handleMessage方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!mHasQuit) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mDbg) mSm.log(<span class="string">"handleMessage: E msg.what="</span> + msg.what);</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** Save the current message */</span></span><br><span class="line">                mMsg = msg;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/** State that processed the message */</span></span><br><span class="line">                State msgProcessedState = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (mIsConstructionCompleted) &#123;</span><br><span class="line">                    <span class="comment">/** Normal path */</span></span><br><span class="line">                    msgProcessedState = processMsg(msg);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mIsConstructionCompleted &amp;&amp; (mMsg.what == SM_INIT_CMD)</span><br><span class="line">                        &amp;&amp; (mMsg.obj == mSmHandlerObj)) &#123;</span><br><span class="line">                    <span class="comment">/** Initial one time path. */</span></span><br><span class="line">                    mIsConstructionCompleted = <span class="keyword">true</span>;</span><br><span class="line">                    invokeEnterMethods(<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"StateMachine.handleMessage: "</span></span><br><span class="line">                            + <span class="string">"The start method not called, received msg: "</span> + msg);</span><br><span class="line">                &#125;</span><br><span class="line">                performTransitions(msgProcessedState, msg);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// We need to check if mSm == null here as we could be quitting.</span></span><br><span class="line">                <span class="keyword">if</span> (mDbg &amp;&amp; mSm != <span class="keyword">null</span>) mSm.log(<span class="string">"handleMessage: X"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>处理消息的方法就是processMsg，处理完成之后会调用performTransitions</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performTransitions</span><span class="params">(State msgProcessedState, Message msg)</span> </span>&#123;</span><br><span class="line">           State orgState = mStateStack[mStateStackTopIndex].state;</span><br><span class="line">           <span class="keyword">boolean</span> recordLogMsg = mSm.recordLogRec(mMsg) &amp;&amp; (msg.obj != mSmHandlerObj)</span><br><span class="line"></span><br><span class="line">           State destState = mDestState;</span><br><span class="line">           <span class="keyword">if</span> (destState != <span class="keyword">null</span>) &#123;</span><br><span class="line">               <span class="comment">/**</span><br><span class="line">                * Process the transitions including transitions in the enter/exit methods</span><br><span class="line">                */</span></span><br><span class="line">               <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                   StateInfo commonStateInfo = setupTempStateStackWithStatesToEnter(destState);</span><br><span class="line">                   invokeEnterMethods(commonStateInfo);</span><br><span class="line">                   <span class="keyword">int</span> stateStackEnteringIndex = moveTempStateStackToStateStack();</span><br><span class="line">                   invokeEnterMethods(stateStackEnteringIndex);</span><br><span class="line"></span><br><span class="line">                   moveDeferredMessageAtFrontOfQueue();</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (destState != mDestState) &#123;</span><br><span class="line">                       <span class="comment">// A new mDestState so continue looping</span></span><br><span class="line">                       destState = mDestState;</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       <span class="comment">// No change in mDestState so we're done</span></span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">               mDestState = <span class="keyword">null</span>;</span><br><span class="line">           &#125;</span><br><span class="line">		....</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<p>这其中的invokeEnterMethods和invokeEnterMethods可以发现运用了状态模式，其接口是IState</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IState</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">enter</span><span class="params">()</span></span>;</span><br><span class="line">  	</span><br><span class="line">  	<span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span></span>;</span><br><span class="line">  </span><br><span class="line">  	<span class="function"><span class="keyword">boolean</span> <span class="title">processMessage</span><span class="params">(Message msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>状态之间是不可以随意切换的，它们有一种层级关系，这些关系在StateMachine中被定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">addState(mDefaultState);</span><br><span class="line">addState(mInitialState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartingState, mDefaultState);</span><br><span class="line">addState(mSupplicantStartedState, mDefaultState);</span><br><span class="line">addState(mDriverStartingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStartedState, mSupplicantStartedState);</span><br><span class="line">addState(mScanModeState, mDriverStartedState);</span><br><span class="line">addState(mConnectModeState, mDriverStartedState);</span><br><span class="line">addState(mL2ConnectedState, mConnectModeState);</span><br><span class="line">addState(mObtainingIpState, mL2ConnectedState);</span><br><span class="line">addState(mVerifyingLinkState, mL2ConnectedState);</span><br><span class="line">addState(mConnectedState, mL2ConnectedState);</span><br><span class="line">addState(mRoamingState, mL2ConnectedState);</span><br><span class="line">addState(mDisconnectingState, mConnectModeState);</span><br><span class="line">addState(mDisconnectedState, mConnectModeState);</span><br><span class="line">addState(mWpsRunningState, mConnectModeState);</span><br><span class="line">addState(mWaitForP2pDisableState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppingState, mSupplicantStartedState);</span><br><span class="line">addState(mDriverStoppedState, mSupplicantStartedState);</span><br><span class="line">addState(mSupplicantStoppingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartingState, mDefaultState);</span><br><span class="line">addState(mSoftApStartedState, mDefaultState);</span><br><span class="line">addState(mTetheringState, mSoftApStartedState);</span><br><span class="line">addState(mTetheredState, mSoftApStartedState);</span><br><span class="line">addState(mUntetheringState, mSoftApStartedState);</span><br><span class="line"></span><br><span class="line">setInitialState(mInitialState);</span><br></pre></td></tr></table></figure>
-<p>其中addState最终都会调用SmHandler中的addState方法，从而绑定关系</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/onCreate方法的源头 - 读书笔记/">onCreate方法的源头 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
-<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
-<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MediaPlayerFactory - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-11T15:51:09.869Z" itemprop="datePublished">2016-05-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/MediaPlayerFactory - 读书笔记/">MediaPlayerFactory - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"><a href="#来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现" class="headerlink" title="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"></a>来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现</h1><hr>
-<h2 id="MediaPlayerFactory是典型的抽象工厂方法"><a href="#MediaPlayerFactory是典型的抽象工厂方法" class="headerlink" title="MediaPlayerFactory是典型的抽象工厂方法"></a>MediaPlayerFactory是典型的抽象工厂方法</h2><p>MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。</p>
-<ul>
-<li>StagefrightPlayerFactory创建StagefrightPlayer</li>
-<li>NuPlayerFactory创建NuPlayerDriver</li>
-<li>SonivoxPlayerFactory创建MidiFile</li>
-<li>TestPlayerFactory创建TestPlayerStub</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Intent的查找与匹配 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/02/Intent的查找与匹配 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-02T03:35:05.983Z" itemprop="datePublished">2016-05-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/02/Intent的查找与匹配 - 读书笔记/">Intent的查找与匹配 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"><a href="#来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式" class="headerlink" title="来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式"></a>来自Android源码设计模式解析与实战的第四章使程序运行更高效-原型模式</h1><hr>
-<h2 id="PackageManagerService的介绍"><a href="#PackageManagerService的介绍" class="headerlink" title="PackageManagerService的介绍"></a>PackageManagerService的介绍</h2><p>PMS加载Framework资源与核心库，之后才开始对扫描的指定目录下的apk文件进行解析。其中scanDirLI方法是扫描指定目录下的所有apk文件，然后通过调用scanPackageLI函数进行解析。</p>
-<p>在scanPackageLI中首先先构造了一个PackageParser，也就是一个apk包解析器，之后调用PackageParser的parsePackage函数进行解析，最终会调用到parseApkLite函数，该函数做的事是：</p>
-<ul>
-<li>构建AssetManager</li>
-<li>构建资源</li>
-<li>获取AndroidManifest.xml 的解析器</li>
-<li>解析获取到的AndroidManifest.xml</li>
-</ul>
-<p>继续，会对Application和use-permission解析，而Application中包含了Activity、Service、Provider、Receiver等标签，之后会把这些分别添加到对应的mActivities、mServices等列表中。到这一步，整个已安装apk的信息树就建立了，每个apk的应用名、包名、图标、Activity、Service等信息都存储在系统中。</p>
-<h2 id="启动Activity"><a href="#启动Activity" class="headerlink" title="启动Activity"></a>启动Activity</h2><p>对于启动一个Activity，最终都是调用startActivityForResult，最后是调用Instrumentation的execStartActivity函数。execStartActivity里面其实就是调用了ActivityManagerService的startActivity方法，整个方法里其实就是调用了ActivityStackSupervisor的startActivityMayWait方法，最后会调用PMS的resolveIntent方法，而其中继续调用了自身的queryIntentActivities方法。而queryIntentActivities会返回一个ActivityInfo对象列表，也就是符合Intent的Activity列表。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 Yangxijun
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
+	</div>
+
+	
+		<div class="col-md-3">
+			<div id="sidebar">
+		</div>
+			
+					
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry list-unstyled">
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+      <li>
+        <a href="/2016/07/03/Activity源码解析 - 读书笔记/"  > <i class="mdi-editor-insert-drive-file"></i>Activity源码解析 - 读书笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/24/AsyncTask源码解析 - 读书笔记/"  > <i class="mdi-editor-insert-drive-file"></i>AsyncTask源码解析 - 读书笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/13/onSaveInstanceState的详细讲解 - 读书笔记/"  > <i class="mdi-editor-insert-drive-file"></i>onSaveInstanceState的详细讲解 - 读书笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/07/Android源码中的观察者模式 - 读书笔记/"  > <i class="mdi-editor-insert-drive-file"></i>Android源码中的观察者模式 - 读书笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/05/PackageParser和PMS - 读书笔记/"  > <i class="mdi-editor-insert-drive-file"></i>PackageParser和PMS - 读书笔记</a>
+      </li>
+    
+  </ul>
+</div>
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
+				
+					
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li> <a href="http://www.github.com/wayou" title="码农之家" target="_blank"> <i class="mdi-action-launch"></i> GitHub</a></li>
+	
+		<li> <a href="http://www.weibo.com/liuwayong" title="twitter的本地化版本" target="_blank"> <i class="mdi-action-launch"></i> 微博</a></li>
+	
+	</ul>
+</div>
 
 
+				
+			</div>
+	
+
+</div>
 
 
+		<footer>
+			
 
+<p>
+  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
+</p>
+<p>
+  &copy; 2016 <a href="http://yoursite.com"> Yangxijun </a>
+</p>
+<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+		</footer>
+	  </div>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+		<!-- material design -->
+		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
+		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
+		<!-- toc -->
+		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
 
+		<script src="/js/main.js"></script>
 
-  </div>
-</body>
+	</body>
 </html>
