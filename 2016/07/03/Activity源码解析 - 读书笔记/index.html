@@ -1,130 +1,271 @@
-	<!DOCTYPE HTML>
-<html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
 <head>
-  <meta charset="utf-8">
-  
-  <title>Activity源码解析 - 读书笔记 | Yangxijun&#39;s Blog</title>
-  <meta name="author" content="Yangxijun">
-  
-  <meta name="description" content="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式
-1. Activity启动Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-  <meta property="og:title" content="Activity源码解析 - 读书笔记"/>
-  <meta property="og:site_name" content="Yangxijun&#39;s Blog"/>
 
-  
-  
-		<!-- favicon -->
-		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="/manifest.json">
-		<meta name="msapplication-TileColor" content="#009688">
-		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-		<meta name="theme-color" content="#009688">
-		<!-- favicon end -->
-    <!-- <link href="/favicon.ico" rel="icon"> -->
-  
 
-  <!-- toc -->
-  <link rel="stylesheet" href="/libs/tocify/jquery.tocify.css" media="screen" type="text/css">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-  <!-- <link rel="stylesheet" href="/libs/bs/css/bootstrap.min.css" media="screen" type="text/css"> -->
-  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" type="text/css">
 
-  <!-- material design -->
-	<!-- <link rel="stylesheet" href="/libs/bs-material/css/ripples.min.css" media="screen" type="text/css"> -->
-  <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/ripples.min.css" media="screen" type="text/css">
-  <!-- <link rel="stylesheet" href="/libs/bs-material/css/material.min.css" media="screen" type="text/css"> -->
-	<link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-material/0.3.0/css/material.min.css" media="screen" type="text/css">
 
-  <link rel="stylesheet" href="/css/highlight.light.css" media="screen" type="text/css">
 
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 
-  
 
-  
 
-  <script src="//apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/libs/jquery-2.0.3.min.js" type="text/javascript"><\/script>')</script>
 
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android源码设计模式解析与实战，读书笔记，Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式
+1. Activity启动Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心服务，这些服务承载着整个Android系统与客户端程序交互。zygote除了启动系统服务与进程之外，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Activity源码解析 - 读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/07/03/Activity源码解析 - 读书笔记/index.html">
+<meta property="og:site_name" content="Yangxijun's Blog">
+<meta property="og:description" content="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式
+1. Activity启动Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心服务，这些服务承载着整个Android系统与客户端程序交互。zygote除了启动系统服务与进程之外，">
+<meta property="og:updated_time" content="2016-07-03T15:22:10.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Activity源码解析 - 读书笔记">
+<meta name="twitter:description" content="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式
+1. Activity启动Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心服务，这些服务承载着整个Android系统与客户端程序交互。zygote除了启动系统服务与进程之外，">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Activity源码解析 - 读书笔记 | Yangxijun's Blog </title>
 </head>
 
- 	<body>
-	  <nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">菜单</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Yangxijun&#39;s Blog</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                
-                <li>
-                    <a href="/" title="">
-                    <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/archives" title="">
-                    <i class="fa fa-list"></i>存档
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/about" title="">
-                    <i class="fa fa-info-circle"></i>关于
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/atom.xml" title="这是一个订阅源">
-                    <i class="fa fa-rss"></i>RSS
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Yangxijun's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-	  <div class="container" >
-	    <div class="row">
-	
-	<div class="col-md-9 center-content">
-	
+ </div>
+    </header>
 
-		<div class="content">
-			<!-- index -->
-		   
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
-			  		<h2>Activity源码解析 - 读书笔记</h2>
-					
-					<div>
-						<span class="post-time">2016-07-03 23:22:18</span>
-					</div>	
-					
+  <div id="posts" class="posts-expand">
+    
 
-					<div class="article-content">
-						<h1 id="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"><a href="#来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"></a>来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式</h1><hr>
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Activity源码解析 - 读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-03T23:22:18+08:00" content="2016-07-03">
+              2016-07-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"><a href="#来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"></a>来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式</h1><hr>
 <h2 id="1-Activity启动"><a href="#1-Activity启动" class="headerlink" title="1. Activity启动"></a>1. Activity启动</h2><p>Activity是一个比较好的模板方法模式。在Android系统启动时，第一个启动的进程是zygote进程，然后由zygote启动SystemServer，再后就是启动AWS、WMS等系统核心服务，这些服务承载着整个Android系统与客户端程序交互。zygote除了启动系统服务与进程之外，普通的用户进程也是由zygote进程fork而来，当一个进程启动起来后，就会加载用户在AndroidManifest.xml中配置的默认加载的Activity，此时加载的入口是ActivityThread.main方法，是整个程序的入口。</p>
 <p>main方法主要功能就是创建Application和Activity，并且调用Activity的生命周期函数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       SamplingProfilerIntegration.start();</span><br><span class="line">       CloseGuard.setEnabled(<span class="keyword">false</span>);</span><br><span class="line">       Environment.initForCurrentUser();</span><br><span class="line">       EventLogger.setReporter(<span class="keyword">new</span> EventLoggingReporter());</span><br><span class="line">       Security.addProvider(<span class="keyword">new</span> AndroidKeyStoreProvider());</span><br><span class="line"></span><br><span class="line">       <span class="comment">// Make sure TrustedCertificateStore looks in the right place for CA certificates</span></span><br><span class="line">       <span class="keyword">final</span> File configDir = Environment.getUserConfigDirectory(UserHandle.myUserId());</span><br><span class="line">       TrustedCertificateStore.setDefaultUserDirectory(configDir);</span><br><span class="line"></span><br><span class="line">       Process.setArgV0(<span class="string">"&lt;pre-initialized&gt;"</span>);</span><br><span class="line"></span><br><span class="line">       Looper.prepareMainLooper();</span><br><span class="line"></span><br><span class="line">       ActivityThread thread = <span class="keyword">new</span> ActivityThread();</span><br><span class="line">       thread.attach(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (sMainThreadHandler == <span class="keyword">null</span>) &#123;</span><br><span class="line">           sMainThreadHandler = thread.getHandler();</span><br><span class="line">       &#125;</span><br><span class="line">       Looper.loop();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">attach</span><span class="params">(<span class="keyword">boolean</span> system)</span> </span>&#123;</span><br><span class="line">       sCurrentActivityThread = <span class="keyword">this</span>;</span><br><span class="line">       mSystemThread = system;</span><br><span class="line">       <span class="keyword">if</span> (!system) &#123;</span><br><span class="line">		...</span><br><span class="line">           android.ddm.DdmHandleAppName.setAppName(<span class="string">"&lt;pre-initialized&gt;"</span>,</span><br><span class="line">                                                   UserHandle.myUserId());</span><br><span class="line">           RuntimeInit.setApplicationObject(mAppThread.asBinder());</span><br><span class="line">           <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               mgr.attachApplication(mAppThread);</span><br><span class="line">           &#125; <span class="keyword">catch</span> (RemoteException ex) &#123;</span><br><span class="line">               <span class="comment">// Ignore</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -145,57 +286,269 @@
 <li>inflate布局</li>
 </ul>
 
-					</div>
+      
+    </div>
 
-			  <!-- about -->
-			  
-		</div>
+    <div>
+      
+        
+      
+    </div>
 
-		<!-- pagination -->
-	  
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android源码设计模式解析与实战，读书笔记，Android/" rel="tag">#Android源码设计模式解析与实战，读书笔记，Android</a>
+          
+        </div>
+      
 
-		<div class="comment-section">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/24/AsyncTask源码解析 - 读书笔记/" rel="next" title="AsyncTask源码解析 - 读书笔记">
+                <i class="fa fa-chevron-left"></i> AsyncTask源码解析 - 读书笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/12/适配器模式 - 读书笔记/" rel="prev" title="适配器模式 - 读书笔记">
+                适配器模式 - 读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Yangxijun" />
+          <p class="site-author-name" itemprop="name">Yangxijun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式"><span class="nav-number">1.</span> <span class="nav-text">来自Android源码设计模式解析与实战的第十五章，抓住问题核心——模板方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Activity启动"><span class="nav-number">1.1.</span> <span class="nav-text">1. Activity启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-setContentView"><span class="nav-number">1.2.</span> <span class="nav-text">2. setContentView</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yangxijun</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
   
   
 
-
-</div>
-	</div>
-
-	
-
-</div>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
 
 
-		<footer>
-			
 
-<p>
-  由 <a href="https://hexo.io">hexo</a> 强力驱动 | 搭载 <a href="https://github.com/wayou/hexo-theme-material">material</a> 主题
-</p>
-<p>
-  &copy; 2016 <a href="http://yoursite.com"> Yangxijun </a>
-</p>
-<a id="gotop" href="#" title="back to top"><i class="mdi-hardware-keyboard-arrow-up"></i></a>
+  
 
-		</footer>
-	  </div>
 
-		<!-- <script src="/libs/bs/js/bootstrap.min.js"></script> -->
-		<script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script>(typeof $().modal == 'function')|| document.write('<script src="/libs/bs/js/bootstrap.min.js" type="text/javascript"><\/script>')</script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
-		<!-- material design -->
-		<!-- <script src="/libs/bs-material/js/ripples.min.js"></script> -->
-		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/ripples.min.js"></script>
-		<!-- <script src="/libs/bs-material/js/material.min.js"></script> -->
-		<script src="//apps.bdimg.com/libs/bootstrap-material/0.3.0/js/material.min.js"></script>
-		<!-- toc -->
-		<!-- <script src="/libs/tocify/jquery-ui.min.js"></script> -->
-		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-		<script src="/libs/tocify/jquery.tocify.custom.js"></script>
 
-		<script src="/js/main.js"></script>
 
-	</body>
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
 </html>
