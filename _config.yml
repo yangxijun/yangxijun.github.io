@@ -63,11 +63,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: ssh://github.com/yangxijun/yangxijun.github.io.git
+  repository: http://github.com/yangxijun/yangxijun.github.io.git
   branch: master
