@@ -148,6 +148,85 @@
 
       <div class="body-wrap">
   
+    <article id="post-享元模式模式 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/06/享元模式模式 - 读书笔记/" class="article-date">
+  	<time datetime="2016-10-06T02:33:47.904Z" itemprop="datePublished">2016-10-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/06/享元模式模式 - 读书笔记/">享元模式模式 - 读书笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="来自Android源码设计模式解析与实战的第二十二章，Android源码中的享元模式"><a href="#来自Android源码设计模式解析与实战的第二十二章，Android源码中的享元模式" class="headerlink" title="来自Android源码设计模式解析与实战的第二十二章，Android源码中的享元模式"></a>来自Android源码设计模式解析与实战的第二十二章，Android源码中的享元模式</h1><hr>
+<h2 id="1-Handler的工作原理"><a href="#1-Handler的工作原理" class="headerlink" title="1. Handler的工作原理"></a>1. Handler的工作原理</h2><p>在此之前，我们还需要了解Message和MessageQueue</p>
+<h3 id="1-1-Message"><a href="#1-1-Message" class="headerlink" title="1.1 Message"></a>1.1 Message</h3><p>Android应用是事件驱动的，每个事件会转化成一个系统消息，即Message。消息中包含了事件相关的信息以及这个消息的处理人Handler。每个进程都有一个默认的消息队列，也就是我们的MessageQueue，这个消息队列维护了一个待处理的消息列表，有一个消息循环不断地从这个队列中取出消息、处理消息 ，这样就使得应用动态的运作起来。</p>
+<p>我们来看看Message.obtain()的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Message <span class="title">obtain</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">synchronized</span> (sPoolSync) &#123;</span><br><span class="line">          <span class="keyword">if</span> (sPool != <span class="keyword">null</span>) &#123;</span><br><span class="line">              Message m = sPool;</span><br><span class="line">              sPool = m.next;</span><br><span class="line">              m.next = <span class="keyword">null</span>;</span><br><span class="line">              m.flags = <span class="number">0</span>; <span class="comment">// clear in-use flag</span></span><br><span class="line">              sPoolSize--;</span><br><span class="line">              <span class="keyword">return</span> m;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> Message();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到Message是一个类似链表的结构，用sPool去存储下个Message。接着再看recycle方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recycle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (isInUse()) &#123;</span><br><span class="line">           <span class="keyword">if</span> (gCheckRecycle) &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       recycleUnchecked();</span><br><span class="line">   &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">recycleUnchecked</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// Mark the message as in use while it remains in the recycled object pool.</span></span><br><span class="line">       <span class="comment">// Clear out all other details.</span></span><br><span class="line">       flags = FLAG_IN_USE;</span><br><span class="line">       what = <span class="number">0</span>;</span><br><span class="line">       arg1 = <span class="number">0</span>;</span><br><span class="line">       arg2 = <span class="number">0</span>;</span><br><span class="line">       obj = <span class="keyword">null</span>;</span><br><span class="line">       replyTo = <span class="keyword">null</span>;</span><br><span class="line">       sendingUid = -<span class="number">1</span>;</span><br><span class="line">       when = <span class="number">0</span>;</span><br><span class="line">       target = <span class="keyword">null</span>;</span><br><span class="line">       callback = <span class="keyword">null</span>;</span><br><span class="line">       data = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">synchronized</span> (sPoolSync) &#123;</span><br><span class="line">           <span class="keyword">if</span> (sPoolSize &lt; MAX_POOL_SIZE) &#123;</span><br><span class="line">               next = sPool;</span><br><span class="line">               sPool = <span class="keyword">this</span>;</span><br><span class="line">               sPoolSize++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>recycle函数会将一个Message对象回收到链表中，并将自身清空后添加到链表的表头。</p>
+<h3 id="1-2-Handler"><a href="#1-2-Handler" class="headerlink" title="1.2 Handler"></a>1.2 Handler</h3><p>我们先来看看Handler构造函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Handler</span><span class="params">(Looper looper, Callback callback, <span class="keyword">boolean</span> async)</span> </span>&#123;</span><br><span class="line">        mLooper = Looper.myLooper();</span><br><span class="line">       <span class="keyword">if</span> (mLooper == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(</span><br><span class="line">               <span class="string">"Can't create handler inside thread that has not called Looper.prepare()"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       mQueue = mLooper.mQueue;</span><br><span class="line">       mCallback = callback;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>这里看到，Handler会通过Looper.getLooper()来获取Looper对象 ，并与之关联。最重要的是Looper持有消息队列mQueue。接下来我们看看Looper中几个常见的方法的源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="meta">@Nullable</span> <span class="function">Looper <span class="title">myLooper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> sThreadLocal.get();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">(<span class="keyword">boolean</span> quitAllowed)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (sThreadLocal.get() != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Only one Looper may be created per thread"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       sThreadLocal.set(<span class="keyword">new</span> Looper(quitAllowed));</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> Looper me = myLooper();</span><br><span class="line">       <span class="keyword">final</span> MessageQueue queue = me.mQueue;</span><br><span class="line">       <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">           Message msg = queue.next(); <span class="comment">// might block</span></span><br><span class="line">           msg.target.dispatchMessage(msg);</span><br><span class="line">           msg.recycleUnchecked();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>其中，loop方法的实质就是建立一个死循环，然后通过从消息队列中逐个取出消息，最后就是处理消息、回收消息的过程。</p>
+<p>我们直接看看queue的next函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Message <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">         		nativePollOnce(mPtr, nextPollTimeoutMillis);</span><br><span class="line">                <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">                <span class="comment">// Try to retrieve the next message.  Return if found.</span></span><br><span class="line">                <span class="keyword">final</span> <span class="keyword">long</span> now = SystemClock.uptimeMillis();</span><br><span class="line">                Message prevMsg = <span class="keyword">null</span>;</span><br><span class="line">                Message msg = mMessages;</span><br><span class="line">                <span class="keyword">if</span> (msg != <span class="keyword">null</span> &amp;&amp; msg.target == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    do &#123;</span><br><span class="line">                        prevMsg = msg;</span><br><span class="line">                        msg = msg.next;</span><br><span class="line">                    &#125; <span class="keyword">while</span> (msg != <span class="keyword">null</span> &amp;&amp; !msg.isAsynchronous());</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>next函数的基本思路就是从消息队列中依次取出消息，如果这个消息到了执行时间，那么就将消息返回给Looper，并将消息队列链表的指针后移。</p>
+<p>但是在消息队列获取消息之前，还有个nativePollOnce函数的调用，第一个参数是mPtr，这个是什么呢？mPtr的初始化是在MessageQueue的构造函数中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MessageQueue(<span class="keyword">boolean</span> quitAllowed) &#123;</span><br><span class="line">       mQuitAllowed = quitAllowed;</span><br><span class="line">       mPtr = nativeInit();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到mPtr的值是nativeInit函数返回的。暂时只了解到这里。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-适配器模式 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -749,69 +828,6 @@
 
 
   
-    <article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/onCreate方法的源头 - 读书笔记/">onCreate方法的源头 - 读书笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
-<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
-<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android源码设计模式解析与实战，读书笔记，Android/">Android源码设计模式解析与实战，读书笔记，Android</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-WiFi管理的详情解析 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -890,11 +906,11 @@
 
 
   
-    <article id="post-MediaPlayerFactory - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-onCreate方法的源头 - 读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/11/MediaPlayerFactory - 读书笔记/" class="article-date">
-  	<time datetime="2016-05-11T15:51:09.869Z" itemprop="datePublished">2016-05-11</time>
+      <a href="/2016/05/17/onCreate方法的源头 - 读书笔记/" class="article-date">
+  	<time datetime="2016-05-16T16:03:16.655Z" itemprop="datePublished">2016-05-17</time>
 </a>
     </div>
   
@@ -907,7 +923,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/MediaPlayerFactory - 读书笔记/">MediaPlayerFactory - 读书笔记</a>
+      <a class="article-title" href="/2016/05/17/onCreate方法的源头 - 读书笔记/">onCreate方法的源头 - 读书笔记</a>
     </h1>
   
 
@@ -916,14 +932,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"><a href="#来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现" class="headerlink" title="来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现"></a>来自Android源码设计模式解析与实战的第六章，Android源码中的抽象工厂方法模式实现</h1><hr>
-<h2 id="MediaPlayerFactory是典型的抽象工厂方法"><a href="#MediaPlayerFactory是典型的抽象工厂方法" class="headerlink" title="MediaPlayerFactory是典型的抽象工厂方法"></a>MediaPlayerFactory是典型的抽象工厂方法</h2><p>MediaPlayerFactory其本质只是用来管理Android内置的4种不同的MediaPlayer，而对于每一种具体的MediaPlayer则由一个具体的Factory类来创建。</p>
-<ul>
-<li>StagefrightPlayerFactory创建StagefrightPlayer</li>
-<li>NuPlayerFactory创建NuPlayerDriver</li>
-<li>SonivoxPlayerFactory创建MidiFile</li>
-<li>TestPlayerFactory创建TestPlayerStub</li>
-</ul>
+        <h1 id="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"><a href="#来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式" class="headerlink" title="来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式"></a>来自Android源码设计模式解析与实战的第五章，应用最广泛的模式——工厂方法模式</h1><hr>
+<h2 id="onCreate方法的源头"><a href="#onCreate方法的源头" class="headerlink" title="onCreate方法的源头"></a>onCreate方法的源头</h2><p> 该系列的<a href="http://yangxijun.github.io/2016/04/30/LayoutInflater%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%20-%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">第一篇文章</a>提到过，一个应用的真在入口是在ActivityThread类中的main方法。</p>
+<h3 id="关于ActivityThread"><a href="#关于ActivityThread" class="headerlink" title="关于ActivityThread"></a>关于ActivityThread</h3><p>ActivityThread是一个final类，一个应用对应一个ActivityThread，当Zygote进程孵化出一个新的应用进程后，会执行ActivityThread的main方法，main方法中做了一些比较常规的逻辑，比如准备Looper和消息队列，然后调用ActivityThread的attach方法将其绑定到ActivityManagerService中，开始不断地读取消息队列中的消息并分发消息。</p>
 
       
     </div>
